@@ -143,7 +143,7 @@
 
   });
 
-  // Initiate venobox (lightbox feature used in portofilo)
+  // Initiate venobox (lightbox feature used in projects section)
   $(document).ready(function() {
     $('.venobox').venobox();
   });

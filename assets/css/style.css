@@ -110,10 +110,6 @@ h6 {
     line-height: 30px;
   }
 
-  #header .social-links {
-    margin-top: 15px;
-  }
-
   #header .container {
     display: flex;
     flex-direction: column;
