@@ -267,7 +267,6 @@ h6 {
   background: #09203a;
 }
 
-#header.header-top .social-links,
 #header.header-top h2 {
   display: none;
 }
@@ -420,9 +419,11 @@ section .container {
 
 .about-me #social-links {
   margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
 }
 
+/* Check if font size is still used with svg*/
 .about-me #social-links a {
   font-size: 16px;
   display: flex;
@@ -439,6 +440,11 @@ section .container {
 
 .about-me #social-links a:hover {
   background: #1c7d32;
+}
+
+.about-me #social-links .icon {
+  stroke: #fff;
+  fill: #fff;
 }
 
 /*--------------------------------------------------------------
