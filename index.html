@@ -28,7 +28,6 @@
 
 <body onload="loadFunc()">
 
-
   <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -69,13 +68,6 @@
       </symbol>
     </defs>
   </svg>
-
-  <!-- instantly displays "about" page on startup -->
-  <script>
-    function loadFunc() {
-      document.getElementById('about-link').click();
-    }
-  </script>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header-tops">
@@ -191,26 +183,33 @@
         </div>
 
         <div class="col-lg-4" data-aos="fade-right">
-
-          <img src="assets/img/profile-pic.jpg" id="profile-pic" class="img-fluid" alt="">
-
-          <div class="row">
-            <div class="col" id="social-links">
-              <a href="https://luischaves.itch.io" target="_blank" class="itchio">
-                <svg class="icon icon-itchio">
-                  <use xlink:href="assets/icons/icons.svg#icon-itchio"></use>
-                </svg>
-              </a>
-              <a href="https://github.com/luischavesdev" target="_blank" class="github">
-                <svg class="icon icon-github">
-                  <use xlink:href="assets/icons/icons.svg#icon-github"></use>
-                </svg>
-              </a>
-            </div>
+          <div class="d-flex justify-content-center align-content-center">
+            <img src="assets/img/profile-pic.jpg" alt="profile-pic" id="profile-pic" class="img-fluid">
+            <img src="assets/img/alt-profile-pic.jpg" alt="alt-profile-pic" id="alt-profile-pic" style="display: none;" />
           </div>
 
-        </div>
+          <div class="row">
+            <div class="col">
+              <div class="d-flex justify-content-center align-content-center" id="toggle-switch">
 
+                <input type="checkbox" id="darkmode-toggle" />
+                <label for="darkmode-toggle">
+                  <svg class="sun" x="0px" y="0px" viewBox="0 0 496 496" style="enable-background: new 0 0 496 496"
+                    xml:space="preserve">
+                    <!-- <use xlink:href="assets/icons/icons.svg#icon-sun"></use> -->
+                    <use xlink:href="#icon-sun"></use>
+                  </svg>
+                  <svg class="moon" x="0px" y="0px" viewBox="0 0 49.739 49.739"
+                    style="enable-background: new 0 0 49.739 49.739" xml:space="preserve">
+                    <!-- <use xlink:href="assets/icons/icons.svg#icon-moon"></use> -->
+                    <use xlink:href="#icon-moon"></use>
+                  </svg>
+                </label>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
