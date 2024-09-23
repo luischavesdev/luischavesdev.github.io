@@ -1,9 +1,4 @@
-/**
-* Template Name: Personal - v2.1.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 !(function ($) {
   "use strict";
 
@@ -44,7 +39,6 @@
         }
 
         return false;
-
       }
     }
   });
@@ -92,40 +86,7 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // jQuery counterUp
-  $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
-  });
-
-  // Skills section
-  $('.skills-content').waypoint(function () {
-    $('.progress .progress-bar').each(function () {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 2
-      },
-      900: {
-        items: 3
-      }
-    }
-  });
-
-  // Porfolio isotope and filter
+  // Porfolio isotope and filter (tag function)
   $(window).on('load', function () {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
@@ -142,6 +103,45 @@
     });
 
   });
+
+
+
+  // $("#darkmode-toggle").on("click", function () {
+  //   if ($(this).is(':checked')) {
+  //     $("#hovereffect").hide();
+  //   }
+  //   else {
+  //     // $(".icons").css({ 'background': '' });
+  //     $("#hovereffect").show();
+  //   }
+
+  //   if (document.getElementById('#darkmode-toggle').checked) {
+  //     $(".hovereffect").hide();
+  //   } else {
+  //     $(".hovereffect").hide();
+  //   }
+  // });
+
+  // $('#header').addClass('header-top');
+  // $("section").removeClass('section-show');
+
+
+
+  // $("#darkmode-toggle").on('click', function () {
+  //   $(".hovereffect").hide();
+  //   if ($(this).is(':checked')) {
+  //     $('.icons').fadeTo('slow', 0.3, function () {
+  //       $(this).css({ 'background': 'blue' });
+  //     }).fadeTo('slow', 1);
+  //   }
+  //   else {
+  //     // $(".icons").css({ 'background': '' });
+  //     $(".hovereffect").hide();
+  //   }
+  // });
+
+
+
 
   // Initiate venobox (lightbox feature used in projects section)
   $(document).ready(function () {
@@ -163,12 +163,14 @@ function switchToggleBehaviour() {
   const profilePic = document.getElementById("profile-pic");
   const profilePicSrc = document.getElementById("profile-pic").currentSrc;
   const altProfilePicSrc = document.getElementById("alt-profile-pic").currentSrc;
-
+  const hover = document.getElementById("hovereffect");
 
   darkModeToggle.addEventListener("click", function (event) {
     if (event.target.checked) {
+      hover.classList.add("alt");
       profilePic.src = altProfilePicSrc;
     } else {
+      hover.classList.remove("alt");
       profilePic.src = profilePicSrc;
     }
   });

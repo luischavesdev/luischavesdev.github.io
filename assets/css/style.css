@@ -456,7 +456,7 @@ section .container {
   border-radius: 3%;
 }
 
-/* Desktop Navigation */
+/* Toggle Switch */
 #toggle-switch label {
   width: 80px;
   height: 40px;
@@ -526,19 +526,58 @@ section .container {
         fill: #fff;
       }
     }
-
-    +.background {
-      background: #242424;
-    }
-  }
-
-  &:active:after {
-    width: 80px;
   }
 }
 
-#toggle-switch .background {
-  transition: 0.3s;
+/* Img Hover */
+#hovereffect .overlay {
+  text-align: center;
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+#hovereffect.alt:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+#hovereffect img {
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+#hovereffect.alt:hover img {
+  filter: brightness(0.5);
+  -webkit-filter: brightness(0.5);
+}
+
+#hovereffect p {
+  padding: 7em 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+#hovereffect:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 /*--------------------------------------------------------------
