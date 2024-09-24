@@ -86,75 +86,37 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // Porfolio isotope and filter (tag function)
+  // Isotope and filter (tag function on projects)
   $(window).on('load', function () {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item',
+    var isotopeRef = $('.projects-container').isotope({
+      itemSelector: '.projects-item',
       layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function () {
-      $("#portfolio-flters li").removeClass('filter-active');
+    $('#projects-flters li').on('click', function () {
+      $("#projects-flters li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
-      portfolioIsotope.isotope({
+      isotopeRef.isotope({
         filter: $(this).data('filter')
       });
     });
 
   });
 
-
-
-  // $("#darkmode-toggle").on("click", function () {
-  //   if ($(this).is(':checked')) {
-  //     $("#hovereffect").hide();
-  //   }
-  //   else {
-  //     // $(".icons").css({ 'background': '' });
-  //     $("#hovereffect").show();
-  //   }
-
-  //   if (document.getElementById('#darkmode-toggle').checked) {
-  //     $(".hovereffect").hide();
-  //   } else {
-  //     $(".hovereffect").hide();
-  //   }
-  // });
-
-  // $('#header').addClass('header-top');
-  // $("section").removeClass('section-show');
-
-
-
-  // $("#darkmode-toggle").on('click', function () {
-  //   $(".hovereffect").hide();
-  //   if ($(this).is(':checked')) {
-  //     $('.icons').fadeTo('slow', 0.3, function () {
-  //       $(this).css({ 'background': 'blue' });
-  //     }).fadeTo('slow', 1);
-  //   }
-  //   else {
-  //     // $(".icons").css({ 'background': '' });
-  //     $(".hovereffect").hide();
-  //   }
-  // });
-
-
-
-
-  // Initiate venobox (lightbox feature used in projects section)
+  // Initiate venobox (lightbox feature used in projects)
   $(document).ready(function () {
     $('.venobox').venobox();
   });
 
 })(jQuery);
 
+
 // Custom func that runs on startup.
 function loadFunc() {
   //Instantly displays "about" page.
   document.getElementById('about-link').click();
-  //Handles logic to switch profile-pics.
+  //Handles logic to regarding the two profile-pics.
   switchToggleBehaviour();
 }
 
