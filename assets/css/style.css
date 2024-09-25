@@ -364,6 +364,10 @@ section .container {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about-me .section-title {
+  margin-top: 1%;
+}
+
 .about-me .content h3 {
   font-weight: 700;
   font-size: 26px;
@@ -538,7 +542,6 @@ section .container {
   height: 80%;
   left: 10%;
   top: 10%;
-  
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: scale(0, 1);
@@ -614,83 +617,77 @@ section .container {
 /*--------------------------------------------------------------
 # Highlights
 --------------------------------------------------------------*/
+.highlights .section-title {
+  margin-bottom: 5%;
+}
+
 .highlights .icon-box {
-  text-align: center;
   background: #09203a;
-  padding: 40px 40px;
-  transition: all ease-in-out 0.3s;
-  margin: 10px
+  padding: 0px 0px;
+  margin: 20px;
+  display: inline-block;
+  border-radius: 10px;
 }
 
-.highlights .icon-box .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: #1c7d32;
-  border-radius: 5px;
-  transition: all .3s ease-out 0s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transform-style: preserve-3d;
+.highlights .icon-box p,
+.highlights .icon-box h6,
+.highlights .icon-box h5,
+.highlights .icon-box ul {
+  text-align: left;
 }
 
-.highlights .icon-box .icon i {
-  color: #fff;
-  font-size: 28px;
-}
-
-.highlights .icon-box .icon::before {
-  position: absolute;
-  content: '';
-  left: -8px;
-  top: -8px;
-  height: 100%;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 5px;
-  transition: all .3s ease-out 0s;
-  transform: translateZ(-1px);
-}
-
-.highlights .icon-box h4 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 24px;
-}
-
-.highlights .icon-box h4 a {
-  color: #fff;
+.highlights .icon-box p,
+.highlights .icon-box h6,
+.highlights .icon-box h5 {
+  padding-left: 15px;
 }
 
 .highlights .icon-box p {
   line-height: 24px;
   font-size: 14px;
-  margin-bottom: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.highlights .icon-box p.proj-company {
+  margin: 5px 0px;
+}
+
+.highlights .icon-box h5 {
+  padding-bottom: 10px;
+}
+
+.highlights .icon-box ul {
+  font-size: 14px;
+  padding-right: 15px;
 }
 
 .highlights .icon-box:hover {
   background: #042e5f;
-  border-color: #1c7d32;
 }
 
-.highlights .icon-box:hover .icon {
-  background: #fff;
+.highlights .highlight-tag{
+  background: #1c7d32;
+  border-radius: 10px;
+  margin: 10px 20px;
+  margin-top: 0px;
 }
 
-.highlights .icon-box:hover .icon i {
-  color: #1c7d32;
+.highlights .highlight-tag:hover{
+  background: #1c7d32;
 }
 
-.highlights .icon-box:hover .icon::before {
-  background: #35e888;
+.highlights .highlight-tag p{
+  padding-right: 15px;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
-.highlights .icon-box:hover h4 a,
+
+/* .highlights .icon-box:hover h4 a,
 .highlights .icon-box:hover p {
   color: #12d640;
-}
+} */
 
 /*--------------------------------------------------------------
 # Projetcs
