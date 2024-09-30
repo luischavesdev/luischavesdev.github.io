@@ -493,18 +493,18 @@ section .container {
 
   svg {
     position: absolute;
-    width: 20px;
-    top: 10px;
+    width: 26px;
+    top: 8px;
     z-index: 100;
 
-    &.sun {
-      left: 15px;
+    &.icon-sun {
+      left: 12px;
       fill: #fff;
       transition: 0.3s;
     }
 
-    &.moon {
-      left: 50px;
+    &.icon-moon {
+      left: 46px;
       fill: #7e7e7e;
       transition: 0.3s;
     }
@@ -526,11 +526,11 @@ section .container {
     }
 
     svg {
-      &.sun {
+      &.icon-sun {
         fill: #7e7e7e;
       }
 
-      &.moon {
+      &.icon-moon {
         fill: #fff;
       }
     }
@@ -714,7 +714,6 @@ section .container {
 #divider {
   height: 2px;
   width: 80%;
-  background: blue;
   background: linear-gradient(90deg, hsl(0, 0%, 20%), hsl(0, 0%, 70%), hsl(0, 0%, 20%));
   margin: 20px 0px;
 }
@@ -742,25 +741,22 @@ section .container {
 .skills .icon-box {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 14px 20px;
   background: #09203a;
-  transition: ease-in-out 0.3s;
 }
 
-
-.skills .icon-box i {
-  font-size: 32px;
+.skills .icon-box .icon {
   padding-right: 10px;
-  line-height: 1;
+  fill: #12d640;
+  width: 50px;
+  height: 50px;
 }
 
 .skills .icon-box h3 {
   font-weight: 700;
   margin: 0;
   padding: 0;
-  line-height: 1;
   font-size: 16px;
-  color: #fff;
 }
 
 .skills .icon-box:hover {
