@@ -515,13 +515,13 @@ section .container {
     top: 8px;
     z-index: 100;
 
-    &.icon-sun {
+    &.icon-hair {
       left: 12px;
       fill: #fff;
       transition: 0.3s;
     }
 
-    &.icon-moon {
+    &.icon-bald {
       left: 46px;
       fill: #7e7e7e;
       transition: 0.3s;
@@ -544,11 +544,11 @@ section .container {
     }
 
     svg {
-      &.icon-sun {
+      &.icon-hair {
         fill: #7e7e7e;
       }
 
-      &.icon-moon {
+      &.icon-bald {
         fill: #fff;
       }
     }
