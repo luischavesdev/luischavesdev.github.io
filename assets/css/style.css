@@ -56,6 +56,24 @@ p {
   line-height: 1.7;
 }
 
+#divider {
+  height: 2px;
+  width: 80%;
+  background: linear-gradient(90deg, hsl(0, 0%, 20%), hsl(0, 0%, 70%), hsl(0, 0%, 20%));
+  margin: 20px 0px;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 10px;
+  justify-content: center;
+}
+
+footer p {
+  padding: 10px 0px;
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -567,8 +585,8 @@ section .container {
 }
 
 #hovereffect.alt:hover img {
-  filter: brightness(0.5);
-  -webkit-filter: brightness(0.5);
+  filter: brightness(0.3);
+  -webkit-filter: brightness(0.3);
 }
 
 #hovereffect p {
@@ -709,13 +727,6 @@ section .container {
 
 .lightbox-details .proj-video {
   padding-bottom: 20px;
-}
-
-#divider {
-  height: 2px;
-  width: 80%;
-  background: linear-gradient(90deg, hsl(0, 0%, 20%), hsl(0, 0%, 70%), hsl(0, 0%, 20%));
-  margin: 20px 0px;
 }
 
 .lightbox-details .highlight-tags {
