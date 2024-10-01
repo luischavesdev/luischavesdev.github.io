@@ -729,6 +729,10 @@ section .container {
   padding-bottom: 20px;
 }
 
+.lightbox-details #tldr {
+  padding-top: 30px;
+}
+
 .lightbox-details .highlight-tags {
   padding: 20px 0px;
   padding-top: 30px;
