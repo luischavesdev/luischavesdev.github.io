@@ -1,10 +1,3 @@
-/**
-* Template Name: Personal - v2.1.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -617,7 +610,8 @@ section .container {
   background: #09203a;
   padding: 0px 0px;
   margin: 20px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
 }
 
@@ -652,18 +646,25 @@ section .container {
   background: #042e5f;
 }
 
-.highlights .highlight-tag {
+.highlights .project-tags {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.highlights .project-tag {
   background: #1c7d32;
   border-radius: 10px;
   margin: 10px 20px;
   margin-top: 0px;
 }
 
-.highlights .highlight-tag:hover {
+.highlights .project-tag:hover {
   background: #1c7d32;
 }
 
-.highlights .highlight-tag p {
+.highlights .project-tag p {
   padding-right: 15px;
   margin-bottom: 0px;
   text-align: center;
@@ -733,19 +734,19 @@ section .container {
   padding-top: 30px;
 }
 
-.lightbox-details .highlight-tags {
+.lightbox-details .project-tags {
   padding: 20px 0px;
   padding-top: 30px;
 }
 
-.lightbox-details .highlight-tag {
+.lightbox-details .project-tag {
   background: #1c7d32;
   border-radius: 10px;
   margin: 10px 20px;
   margin-top: 0px;
 }
 
-.lightbox-details .highlight-tag p {
+.lightbox-details .project-tag p {
   margin-bottom: 0px;
   text-align: center;
 }
