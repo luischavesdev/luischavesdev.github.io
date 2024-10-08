@@ -107,7 +107,7 @@ $('.tldr-button').click(function () {
 // Custom func that runs on startup.
 function loadFunc() {
   //Instantly displays "about" page.
-  document.getElementById('about-link').click();
+  document.getElementById('edu-link').click();
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
 }

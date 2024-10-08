@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GameEngine</title>
+  <meta charset="UTF-8">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="lightbox-details container">
+
+    <div class="row lightbox-header">
+      <div class="col">
+        <h2>C++ Game Engine</h2>
+        <p><em>Personal Project</em></p>
+      </div>
+
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="https://github.com/luischavesdev/CppGameEngine" target="_blank" class="check-proj-link">
+            Check it!
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row lightbox-sub-header">
+      <div class="col">
+        <ul>
+          <li><b>Year:</b> 2021</li>
+          <li><b>Team Size:</b> 2</li>
+          <li><b>Time:</b> 2 months</li>
+          <li><b>Employment Type:</b> Part-time</li>
+        </ul>
+      </div>
+
+      <div class="col align-content-center">
+        <div class="d-flex justify-content-end">
+          <button class="tldr-button">
+            TLDR
+            <svg class="icon">
+              <use xlink:href="assets/icons/icons.svg#icon-arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6>Description</h6>
+        <p>
+          Personal project made with a friend not only to further explore C++ development, but also game engine
+          architecture in general. The main project consists on a 2D game engine with a similar class strucuture to
+          Unreal, already offering the concepts of actor, pawn, character, etc... Naturally not everything was built
+          from scratch though, as the render pipeline was developed on top of OpenGL, and SDL was used for window
+          creation, input handling, and audio. Collisions are also abstracted, but under the hood run based on Box2D.
+          As a proof of concept, a mock shmup using free assets was created using the already compiled engine as an
+          external library.
+        </p>
+
+        <div class="d-flex justify-content-center proj-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YrV5QRa83ns" frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <h6>Contribution</h6>
+        <p>
+          As a small duo project, it's easy enough for one to keep a holistic vision of the project along its
+          development, but even then, some aspects end up falling more into one's plate. Personally, collision handling
+          as well as input handling were aspetcs mostly developed by myself, while the graphics pipeline was set into
+          stone by my other teamate, leaving me space to focus more on the OpenGL integration. Audio for example also
+          fell outside of my responsability, and core design elements like the architecture of the engine was decided by
+          us both.
+        </p>
+
+        <div class="d-flex justify-content-center">
+          <div id="divider"></div>
+        </div>
+
+        <p>
+          On the game's side, matters were also split between us two, with me being responsible for the enemies and
+          setting aside the player spaceship for example. That said, the "game" portion was simply put into place so we
+          could make sure whatever feature we implemented was actually working as intended. All in all, the end result
+          turned out pretty neat, with only some form of font parsing lacking from the final version, leaving the game
+          with its score to be displayed on the console. It's no biggie though, just one more thing for the eternal and
+          ever-growing TODO list of project tweaks.
+        </p>
+
+        <h6 id="tldr">TLDR</h6>
+        <ul>
+          <li>Custom C++ game engine.</li>
+          <li>Uses OpenGL and Box2D.</li>
+          <li>Used as a library to develop a mockup shmup.</li>
+          <li>Has features such as 2D transformations, tiling, and spritesheet based animation.</li>
+          <li>Audio features are SDL based.</li>
+        </ul>
+
+        <div class="row project-tags">
+          <div class="col-sm-auto icon-box project-tag">
+            <p>C++</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Game Engine Programming</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>OpenGL</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>SDL</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Computer Graphics</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS File -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

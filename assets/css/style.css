@@ -780,6 +780,40 @@ section .container {
 }
 
 /*--------------------------------------------------------------
+# Education
+--------------------------------------------------------------*/
+.edu .section-title {
+  margin-top: 1%;
+}
+
+.edu .icon-box {
+  text-align:left;
+  background: #09203a;
+  padding: 40px 40px;
+  transition: all ease-in-out 0.3s;
+  margin: 20px 0px;
+}
+
+.edu .icon-box h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.edu .icon-box .establishment {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.edu .icon-box .description {
+  padding-left: 24px;
+}
+
+.edu .icon-box:hover {
+  background: #042e5f;
+}
+
+/*--------------------------------------------------------------
 # Projetcs
 --------------------------------------------------------------*/
 .projects .projects-item {
