@@ -787,7 +787,7 @@ section .container {
 }
 
 .edu .icon-box {
-  text-align:left;
+  text-align: left;
   background: #09203a;
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
@@ -827,43 +827,51 @@ section .container {
 /*--------------------------------------------------------------
 # Projetcs
 --------------------------------------------------------------*/
-.projects .projects-item {
-  margin-bottom: 30px;
+.projects .section-title {
+  margin-top: 1%;
 }
 
-.projects #projects-flters {
-  padding: 0;
+.projects #projects-filters {
   margin: 0 auto 15px auto;
-  list-style: none;
   text-align: center;
   border-radius: 50px;
   padding: 2px 15px;
 }
 
-.projects #projects-flters li {
+.projects #projects-filters li {
   cursor: pointer;
   display: inline-block;
   padding: 8px 16px 10px 16px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
   margin: 0 3px 10px 3px;
-  transition: all 0.3s ease-in-out;
   border-radius: 4px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
-.projects #projects-flters li:hover,
-.projects #projects-flters li.filter-active {
+.projects #projects-filters li:hover,
+.projects #projects-filters li.filter-active {
   background: #1c7d32;
 }
 
-.projects #projects-flters li:last-child {
-  margin-right: 0;
+.projects .projects-item {
+  margin-bottom: 30px;
 }
 
+.projects .projects-item h4 {
+  text-align: center;
+}
+
+.projects .projects-item .icon {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+
+/* Project Wrap */
 .projects .projects-wrap {
   transition: 0.3s;
   position: relative;
@@ -929,37 +937,6 @@ section .container {
   z-index: 9994;
 }
 
-.projects .projects-wrap .projects-info h4 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-}
-
-.projects .projects-wrap .projects-info p {
-  color: #ffffff;
-  font-size: 14px;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-}
-
-.projects .projects-wrap .projects-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.projects .projects-wrap .projects-links a {
-  color: #fff;
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.projects .projects-wrap .projects-links a:hover {
-  color: #63eda3;
-}
-
 .projects .projects-wrap:hover::before {
   top: 0;
   left: 0;
@@ -980,6 +957,10 @@ section .container {
 .projects .projects-wrap:hover .projects-info::after {
   bottom: 15px;
   right: 15px;
+}
+
+.projects .projects-wrap .projects-links {
+  z-index: 4;
 }
 
 /*--------------------------------------------------------------

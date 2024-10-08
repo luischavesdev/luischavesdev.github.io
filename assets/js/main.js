@@ -72,13 +72,13 @@ if ($('.nav-menu').length) {
 
 // Isotope and filter (tag function on projects section)
 $(window).on('load', function () {
-  var isotopeRef = $('.projects-container').isotope({
+  var isotopeRef = $('.projects-isotope').isotope({
     itemSelector: '.projects-item',
     layoutMode: 'fitRows'
   });
 
-  $('#projects-flters li').on('click', function () {
-    $("#projects-flters li").removeClass('filter-active');
+  $('#projects-filters li').on('click', function () {
+    $("#projects-filters li").removeClass('filter-active');
     $(this).addClass('filter-active');
 
     isotopeRef.isotope({
@@ -107,7 +107,7 @@ $('.tldr-button').click(function () {
 // Custom func that runs on startup.
 function loadFunc() {
   //Instantly displays "about" page.
-  document.getElementById('edu-link').click();
+  document.getElementById('proj-link').click();
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
 }
