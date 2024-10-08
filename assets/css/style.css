@@ -795,9 +795,20 @@ section .container {
 }
 
 .edu .icon-box h4 {
+  color: #12d640;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
+}
+
+.edu .icon {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+
+.edu .icon:hover {
+  fill: #12d640;
 }
 
 .edu .icon-box .establishment {
