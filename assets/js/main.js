@@ -15,7 +15,6 @@ $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
 
       if ($('body').hasClass('mobile-nav-active')) {
         $('body').removeClass('mobile-nav-active');
-        $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
         $('.mobile-nav-overlay').fadeOut();
       }
 
@@ -47,12 +46,11 @@ if ($('.nav-menu').length) {
     class: 'mobile-nav d-lg-none'
   });
   $('body').append(mobile_nav);
-  $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><svg class="icon nav-menu-icon"><use xlink:href="assets/icons/icons.svg#icon-mobile-menu"></use></svg></button>');
+  $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><svg class="icon"><use xlink:href="assets/icons/icons.svg#icon-mobile-menu"></use></svg></button>');
   $('body').append('<div class="mobile-nav-overlay"></div>');
 
   $(document).on('click', '.mobile-nav-toggle', function (e) {
     $('body').toggleClass('mobile-nav-active');
-    $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
     $('.mobile-nav-overlay').toggle();
   });
 
@@ -61,7 +59,6 @@ if ($('.nav-menu').length) {
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       if ($('body').hasClass('mobile-nav-active')) {
         $('body').removeClass('mobile-nav-active');
-        $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
         $('.mobile-nav-overlay').fadeOut();
       }
     }
