@@ -43,10 +43,10 @@ $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
 
 // Mobile Navigation
 if ($('.nav-menu').length) {
-  var $mobile_nav = $('.nav-menu').clone().prop({
+  var mobile_nav = $('.nav-menu').clone().prop({
     class: 'mobile-nav d-lg-none'
   });
-  $('body').append($mobile_nav);
+  $('body').append(mobile_nav);
   $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
   $('body').append('<div class="mobile-nav-overly"></div>');
 
@@ -108,8 +108,18 @@ $('.tldr-button').click(function () {
 function loadFunc() {
   //Instantly displays "about" page.
   document.getElementById('proj-link').click();
+
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
+
+  footerDateManagement();
+}
+
+function footerDateManagement() {
+  const updateYear = 2024;
+  const dif = new Date().getFullYear() - updateYear;
+  const footerString = "Last online " + dif + " years ago | " + updateYear;
+  document.getElementById("year-dif").innerHTML = footerString;
 }
 
 function switchToggleBehaviour() {
