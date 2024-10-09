@@ -13,6 +13,12 @@ $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
         $(this).closest('li').addClass('active');
       }
 
+      if ($('body').hasClass('mobile-nav-active')) {
+        $('body').removeClass('mobile-nav-active');
+        $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
+        $('.mobile-nav-overlay').fadeOut();
+      }
+
       if (hash == '#header') {
         $('#header').removeClass('header-top');
         $("section").removeClass('section-show');
@@ -30,12 +36,6 @@ $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
         $(hash).addClass('section-show');
       }
 
-      if ($('body').hasClass('mobile-nav-active')) {
-        $('body').removeClass('mobile-nav-active');
-        $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
-        $('.mobile-nav-overly').fadeOut();
-      }
-
       return false;
     }
   }
@@ -48,12 +48,12 @@ if ($('.nav-menu').length) {
   });
   $('body').append(mobile_nav);
   $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><svg class="icon nav-menu-icon"><use xlink:href="assets/icons/icons.svg#icon-mobile-menu"></use></svg></button>');
-  $('body').append('<div class="mobile-nav-overly"></div>');
+  $('body').append('<div class="mobile-nav-overlay"></div>');
 
   $(document).on('click', '.mobile-nav-toggle', function (e) {
     $('body').toggleClass('mobile-nav-active');
     $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
-    $('.mobile-nav-overly').toggle();
+    $('.mobile-nav-overlay').toggle();
   });
 
   $(document).click(function (e) {
@@ -62,7 +62,7 @@ if ($('.nav-menu').length) {
       if ($('body').hasClass('mobile-nav-active')) {
         $('body').removeClass('mobile-nav-active');
         $('.mobile-nav-toggle svg').toggleClass('nav-menu-icon');
-        $('.mobile-nav-overly').fadeOut();
+        $('.mobile-nav-overlay').fadeOut();
       }
     }
   });
