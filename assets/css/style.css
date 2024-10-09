@@ -209,6 +209,12 @@ footer p {
   color: #fff;
 }
 
+.mobile-nav-toggle .icon {
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+}
+
 .mobile-nav {
   position: fixed;
   top: 55px;
