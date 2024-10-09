@@ -47,7 +47,7 @@ if ($('.nav-menu').length) {
     class: 'mobile-nav d-lg-none'
   });
   $('body').append(mobile_nav);
-  $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
+  $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><svg class="icofont-navigation-menu"><use xlink:href="assets/icons/icons.svg#icon-github"></use></svg></i></button>');
   $('body').append('<div class="mobile-nav-overly"></div>');
 
   $(document).on('click', '.mobile-nav-toggle', function (e) {
