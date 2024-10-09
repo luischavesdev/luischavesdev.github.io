@@ -67,25 +67,32 @@ if ($('.nav-menu').length) {
   $(".mobile-nav, .mobile-nav-toggle").hide();
 }
 
-// Isotope and filter (tag function on projects section)
+// Isotope (filter and sort function on projects section)
 $(window).on('load', function () {
   var isotopeRef = $('.projects-isotope').isotope({
     itemSelector: '.projects-item',
-    layoutMode: 'fitRows'
+    layoutMode: 'fitRows',
+    getSortData: { custom: '.custom parseInt', chronological: '.chronological parseInt' }
   });
 
   $('#projects-filters li').on('click', function () {
     $("#projects-filters li").removeClass('filter-active');
     $(this).addClass('filter-active');
 
-    isotopeRef.isotope({
-      filter: $(this).data('filter')
-    });
-  });
+    let sortValue = $(this).attr('data-sort-value');
 
+    if (sortValue != undefined) {
+      console.log(sortValue)
+      isotopeRef.isotope({ sortBy: sortValue });
+      isotopeRef.isotope({ filter: "*" });
+    } else {
+      isotopeRef.isotope({ sortBy: "custom" });
+      isotopeRef.isotope({ filter: $(this).attr('data-filter') });
+    }
+  });
 });
 
-// Initiate venobox when page ready (lightbox feature used in projects)
+// Venobox (lightbox feature used in project details)
 $(document).ready(function () {
   $('.venobox').venobox();
 });

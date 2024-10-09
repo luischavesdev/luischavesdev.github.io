@@ -875,23 +875,18 @@ section .container {
 
 /* Project Wrap */
 .projects .projects-wrap {
-  transition: 0.3s;
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
 }
 
 .projects .projects-wrap::before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   position: absolute;
   left: 30px;
   right: 30px;
   top: 30px;
   bottom: 30px;
   transition: all ease-in-out 0.3s;
-  z-index: 2;
   opacity: 0;
 }
 
@@ -902,8 +897,6 @@ section .container {
   left: 0;
   right: 0;
   bottom: 0;
-  text-align: center;
-  z-index: 3;
   transition: all ease-in-out 0.3s;
   display: flex;
   flex-direction: column;
@@ -922,7 +915,6 @@ section .container {
   border-top: 3px solid #fff;
   border-left: 3px solid #fff;
   transition: all 0.5s ease 0s;
-  z-index: 9994;
 }
 
 .projects .projects-wrap .projects-info::after {
@@ -936,7 +928,6 @@ section .container {
   border-bottom: 3px solid #fff;
   border-right: 3px solid #fff;
   transition: all 0.5s ease 0s;
-  z-index: 9994;
 }
 
 .projects .projects-wrap:hover::before {
@@ -961,8 +952,17 @@ section .container {
   right: 15px;
 }
 
-.projects .projects-wrap .projects-links {
-  z-index: 4;
+.projects .projects-wrap p {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  text-align: center;
+}
+
+.projects .projects-wrap svg {
+  position: absolute;
+  bottom: 25px;
 }
 
 /*--------------------------------------------------------------
