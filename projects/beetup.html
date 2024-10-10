@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BeetUp</title>
+  <meta charset="UTF-8">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="lightbox-details container">
+
+    <div class="row lightbox-header">
+      <div class="col">
+        <h2>Beet Up: Raddish Edition</h2>
+        <p><em>Game Jam</em></p>
+      </div>
+
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="https://tgnics.itch.io/beet-up-raddish-edition" target="_blank" class="check-proj-link">
+            Check it!
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row lightbox-sub-header">
+      <div class="col">
+        <ul>
+          <li><b>Year:</b> 2023</li>
+          <li><b>Team Size:</b> 6</li>
+          <li><b>Time:</b> 2 days</li>
+          <li><b>Employment Type:</b> Fullest-time</li>
+        </ul>
+      </div>
+
+      <div class="col align-content-center">
+        <div class="d-flex justify-content-end">
+          <button class="tldr-button">
+            TLDR
+            <svg class="icon">
+              <use xlink:href="../assets/icons/icons.svg#icon-arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6>Description</h6>
+        <p>
+          Beet Up is a short action based arcade style game, with the single objective of getting the highest score
+          possible depending on how long the player manages to survive. As more enemies come from outer space, the task
+          of protecting the center of the screen gets harder, forcing the player to manage the currency acquired
+          throughout play in order to progress through several powerup trees. Eventually the enemies become
+          unmanageable, leaving the player with only their highscore to contemplate.
+        </p>
+
+        <div class="d-flex justify-content-center proj-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/tfuKZj5X1DA" frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <h6>Contribution</h6>
+        <p>
+          Being developed for the 2023's edition of Global Game Jam, with the theme "Roots", the team spent quite a
+          while brainstorming an idea, after which tasks were delegated to different members. Taking into account the
+          theme and the concept of protecting a core from enemies burrowing underground, this idea of managing what has
+          already been burrowed vs what hasn't, had to be represented to the player in some way, which became my
+          responsability throughout the jam, only managing to crack the approach well into the 48 hour time limit.
+        </p>
+
+        <div class="d-flex justify-content-center">
+          <div id="divider"></div>
+        </div>
+
+        <p>
+          Since Godot lacked any such feature out of the box, the R&D process consisted of checking what had been done
+          regarding such feature, and hacking way a solution that worked for us based on other people's efforts. This
+          resulted in a collider associated with a sprite, that on collision with the enemies, recalculates iteslf on
+          given time intervals, based on a boolean operation that takes into account the enemy's collider. Other than
+          that, general bug fixing is always on the menu in these types of projects, with the game coming together
+          pretty neatly in the last couple of hours.
+        </p>
+
+        <h6 id="tldr">TLDR</h6>
+        <ul>
+          <li>Classic arcade style game.</li>
+          <li>Developed in Godot.</li>
+          <li>Made for GGJ 2023, with "Roots" as a theme.</li>
+          <li>Tackled the game's dynamic collision system.</li>
+          <li>Naturally helped around with the game's conception and debug process.</li>
+        </ul>
+
+        <div class="row project-tags">
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Gameplay Programming</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Godot</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Game Design</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Git</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS File -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
