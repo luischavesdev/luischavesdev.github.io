@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BinauralPlugin</title>
+  <meta charset="UTF-8">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="lightbox-details container">
+
+    <div class="row lightbox-header">
+      <div class="col">
+        <h2>Binaural Plugin</h2>
+        <a href="https://soundparticles.com/" target="_blank"> <em>Sound Particles</em> </a>
+      </div>
+    </div>
+
+    <div class="row lightbox-sub-header">
+      <div class="col">
+        <ul>
+          <li><b>Year:</b> 2022</li>
+          <li><b>Team Size:</b> ~30</li>
+          <li><b>Time:</b> 4 months</li>
+          <li><b>Employment Type:</b> Full-time</li>
+        </ul>
+      </div>
+
+      <div class="col align-content-center">
+        <div class="d-flex justify-content-end">
+          <button class="tldr-button">
+            TLDR
+            <svg class="icon">
+              <use xlink:href="../assets/icons/icons.svg#icon-arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6>Description</h6>
+        <p>
+          With Sound Particles having already work done on the binaural front, the next step was to expand the immersive
+          audio experience by having the ability to pan binaural audio based on the position of the listener's head. In
+          order to do this, integration of some kind of tracking had to be done, and in between several options, like
+          camera-based tracking, the chosen option ended up being an IMU based solution, either integrated into the
+          headphones, like in Apple's AirPods, or through an external Bluetooth device.
+        </p>
+
+        <div class="d-flex justify-content-center proj-video">
+          <img src="../assets/img/projects/sp-project.jpg" class="img-fluid" alt="Binaural plugin screenshot">
+        </div>
+
+        <h6>Contribution</h6>
+        <p>
+          Being brought into the team with the task of R&Ding possible solutions for the problem at hand, the first
+          approach consisted in trying to retrieve the IMU's information from the AirPods, since they were the first
+          thing at hand at the office. After a couple of days researching the topic, a Swift app was put together that
+          could recieve the angles information, but this could be done only by using a proprietary API only available in
+          iOS, which kinda limited the reach of the final product. Shortly after, work started to be done on the Waves'
+          NX, which worked through Bluetooth.
+        </p>
+
+        <div class="d-flex justify-content-center">
+          <div id="divider"></div>
+        </div>
+
+        <p>
+          Regarding the NX, the communication protocol used to communicate with Waves' apps was figured out, allowing
+          the IMU's information to be accessed by a generic API created in C++ for better integration with Sound
+          Particles codebase. Work was also done with Supperware's tracker, which had open documentation, but
+          communicated through MIDI, forcing the C++ API to abstract the idiosyncrasies of each head-tracker. Finally,
+          the work done was integrated in a JUCE project, further developed so the angle information could be sent using
+          OSC, and just for good measure, Allan Deviation and other performance indicators were measured across the 3
+          solutions with the help of Max/MSP, and we concluded that Supperware's solution was the best fit overall.
+        </p>
+
+        <h6 id="tldr">TLDR</h6>
+        <ul>
+          <li>Developed for Sound Particles.</li>
+          <li>R&D regarding head tracking implementation.</li>
+          <li>Custom head-tracking API was then implemented in a binaural plugin.</li>
+          <li>Overarching Apple ecosystem implied technologies such as Swift and Objective-C.</li>
+          <li>Audio related context led to MIDI and OSC work being done.</li>
+          <li>Managed to implement 2 head-trackers + partial support for AirPods.</li>
+        </ul>
+
+        <div class="row project-tags">
+          <div class="col-sm-auto icon-box project-tag">
+            <p>C++</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>MIDI</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>JUCE</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Objective-C</p>
+          </div>
+          <div class="col-sm-auto icon-box project-tag">
+            <p>Bluetooth</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS File -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
