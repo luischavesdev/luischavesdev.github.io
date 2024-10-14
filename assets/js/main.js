@@ -67,31 +67,6 @@ if ($('.nav-menu').length) {
   $(".mobile-nav, .mobile-nav-toggle").hide();
 }
 
-// Isotope (filter and sort function on projects section)
-$(window).on('load', function () {
-  var isotopeRef = $('.projects-isotope').isotope({
-    itemSelector: '.projects-item',
-    layoutMode: 'fitRows',
-    getSortData: { custom: '.custom parseInt', chronological: '.chronological parseInt' }
-  });
-
-  $('#projects-filters li').on('click', function () {
-    $("#projects-filters li").removeClass('filter-active');
-    $(this).addClass('filter-active');
-
-    let sortValue = $(this).attr('data-sort-value');
-
-    if (sortValue != undefined) {
-      console.log(sortValue)
-      isotopeRef.isotope({ sortBy: sortValue });
-      isotopeRef.isotope({ filter: "*" });
-    } else {
-      isotopeRef.isotope({ sortBy: "custom" });
-      isotopeRef.isotope({ filter: $(this).attr('data-filter') });
-    }
-  });
-});
-
 // Venobox (lightbox feature used in project details)
 $(document).ready(function () {
   $('.venobox').venobox();
@@ -107,24 +82,18 @@ $('.tldr-button').click(function () {
 
 
 // --- || JavaScript || ---
-
-// Custom func that runs on startup.
-function loadFunc() {
-  //Instantly displays "about" page.
+window.onload = (event) => {
+  //Instantly displays "about" page, simulating a nav click.
   document.getElementById('proj-link').click();
 
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
 
   footerDateManagement();
-}
 
-function footerDateManagement() {
-  const updateYear = 2024;
-  const dif = new Date().getFullYear() - updateYear;
-  const footerString = "Last online " + dif + " years ago | " + updateYear;
-  document.getElementById("year-dif").innerHTML = footerString;
-}
+  // Sets up the various project categories filters
+  setupIsotopes(3)
+};
 
 function switchToggleBehaviour() {
   const darkModeToggle = document.getElementById("darkmode-toggle");
@@ -142,4 +111,47 @@ function switchToggleBehaviour() {
       profilePic.src = profilePicSrc;
     }
   });
+}
+
+function footerDateManagement() {
+  const updateYear = 2024;
+  const dif = new Date().getFullYear() - updateYear;
+  const footerString = "Last online " + dif + " years ago | " + updateYear;
+  document.getElementById("year-dif").innerHTML = footerString;
+}
+
+function setupIsotopes(ammount) {
+
+  for (let i = 0; i < ammount; ++i) {
+    let stringIndex = (i + 1).toString()
+
+    let isotopeRef = new Isotope('.projects-isotope' + stringIndex, {
+      itemSelector: '.proj-item' + stringIndex,
+      layoutMode: 'fitRows',
+      getSortData: { custom: '.custom parseInt', chronological: '.chronological parseInt' }
+    });
+
+    let filtersElem = document.querySelectorAll('#filters' + stringIndex + ' li');
+
+    for (let i = 0; i < filtersElem.length; ++i) {
+      let filter = filtersElem[i];
+
+      filter.addEventListener('click', function (event) {
+        document.querySelector('#filters' + stringIndex + ' .filter-active').classList.remove('filter-active');
+        event.target.classList.add('filter-active');
+
+        let sortValue = event.target.getAttribute('data-sort-value');
+        let filterValue = event.target.getAttribute('data-filter');
+
+        if (sortValue != undefined) { // Chronological: sort by year and show all 
+          isotopeRef.arrange({ sortBy: sortValue });
+          isotopeRef.arrange({ filter: "*" });
+        } else { // Default: custom sort and show according to filter 
+          isotopeRef.arrange({ sortBy: "custom" });
+          isotopeRef.arrange({ filter: filterValue });
+        }
+      });
+    }
+
+  }
 }
