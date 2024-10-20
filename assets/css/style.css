@@ -370,16 +370,6 @@ section .container {
   margin: 4px 10px;
 }
 
-.section-title p {
-  margin: 0;
-  margin: -15px 0 15px 0;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
-}
-
 /*--------------------------------------------------------------
 # About Me
 --------------------------------------------------------------*/
@@ -668,6 +658,16 @@ section .container {
   color: white;
 }
 
+/* Disabled button used when there is propriatery code, permitting no access naturally. */
+.lightbox-details button.check-proj-link {
+  color: grey;
+  background-color: rgba(255, 255, 255, 0.0);
+}
+
+.lightbox-details button.check-proj-link:hover {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
 .lightbox-details .check-proj-link:hover {
   background-color: #1c7d32;
 }
@@ -809,6 +809,10 @@ section .container {
 --------------------------------------------------------------*/
 .projects .section-title {
   margin-top: 1%;
+}
+
+.projects .dark-ages {
+  margin-bottom: 5%;
 }
 
 .projects .projects-filters {
