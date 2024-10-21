@@ -33,8 +33,8 @@
           <li><a href="#header"> <span>Home</span></a></li>
           <li class="active"><a id="about-link" href="#about"><span>About</span></a></li>
           <li><a href="#education"> <span>Education</span></a></li>
-          <li><a id="proj-link" href="#projects"> <span>Projects</span></a></li>
-          <li><a id="end-link" href="#end"> <span>The End</span></a></li>
+          <li><a href="#projects"> <span>Projects</span></a></li>
+          <li><a href="#end"> <span>The End</span></a></li>
         </ul>
       </nav>
 
@@ -105,8 +105,10 @@
 
           <div class="d-flex justify-content-center align-content-center">
             <div id="hovereffect">
-              <img src="assets/img/profile-pic.jpg" alt="profile-pic" id="profile-pic" class="img-fluid">
-              <img src="assets/img/alt-profile-pic.jpg" alt="alt-profile-pic" id="alt-profile-pic"
+              <img src="assets/img/profile-pic.jpg" alt="Profile pic" id="profile-pic" class="img-fluid">
+              <img src="assets/img/alt-profile-pic.jpg" alt="Profile pic but bald" id="alt-profile-pic"
+                style="display: none;" />
+              <img src="assets/img/hidden-profile-pic.jpg" alt="Profile pic but bird" id="hidden-profile-pic"
                 style="display: none;" />
               <div class="overlay">
                 <p>Post dev arc timeskip</p>
@@ -429,9 +431,9 @@
 
     <footer>
       <div class="d-flex justify-content-center">
-        <div id="divider"></div>
+        <div class="divider"></div>
       </div>
-      <p id="year-dif"></p>
+      <p class="year-dif"></p>
     </footer>
 
   </section>
@@ -496,6 +498,14 @@
         </div>
       </div>
     </div>
+
+    <footer>
+      <div class="d-flex justify-content-center">
+        <div class="divider"></div>
+      </div>
+      <p class="year-dif"></p>
+    </footer>
+
   </section>
   <!-- ======= End Education Section ======= -->
 
@@ -878,6 +888,13 @@
       </div>
     </div>
 
+    <footer>
+      <div class="d-flex justify-content-center">
+        <div class="divider"></div>
+      </div>
+      <p class="year-dif"></p>
+    </footer>
+
   </section>
   <!-- ======= End Project Section ======= -->
 
@@ -886,45 +903,112 @@
     <div class="final container">
 
       <div class="section-title">
-        <h2>The End</h2>
+        <h2>Game/Game Adjacent Quote Gallery</h2>
       </div>
 
-      <div class="row">
+      <div class="row justify-content-between quote-gallery">
 
         <div class="col-lg-4">
           <div class="d-flex justify-content-center align-content-center">
-            <img src="assets/img/profile-pic.jpg" alt="profile-pic" id="profile-pic" class="img-fluid">
+            <img src="assets/img/guile-win-quote.jpg"
+              alt="Games are good. The kusoge, the e-sports, the balanced, and the broken. All games are great."
+              class="img-fluid">
+          </div>
+
+          <div class="d-flex justify-content-center align-content-center">
+            <img src="assets/img/ac-quote.jpg"
+              alt="Games are good. The kusoge, the e-sports, the balanced, and the broken. All games are great."
+              class="img-fluid">
           </div>
         </div>
 
-        <div class="col-lg-8 pt-4 pt-lg-0 content">
+        <div class="col-lg-7 pt-4 pt-lg-0 content">
           <div class="end-title">
             <h2>Hi Again!</h2>
           </div>
+
           <div id="end-blurb">
-            <p>
-              You've reached the end. It's a secret to everybody, so thank you for taking the time to get here! In case
-              you've skipped over everything just to reach the end, I'm sorry but there is no speedrun related
-              achievement, so you
-              can go back and peruse through the remaining website at a leisurely pace. I did say free-form exploration
-              was valid, so joke's on me.
-            </p>
-            <p>
-              That aside, they told me the initial blurb had to be short, so if for some reason you were left itching to
-              know more, well this is the section for you, i.e. the section where people talk about fundamentally
-              objective things, such as:
-            </p>
-            <ul>
-              <li>Top 10 games of all time</li>
-              <li>Best music genre</li>
-              <li>And much, much more</li>
-            </ul>
+            <div class="blurb-section">
+              <p>
+                You've reached the end. It's a secret to everybody, so thank you for taking the time to get here! In
+                case you've skipped over everything just to reach the end, I'm sorry but there is no speedrun related
+                achievement, so you can go back and peruse through the remaining website at a leisurely pace. I did say
+                free-form exploration was valid, so joke's on me.
+              </p>
+              <p>
+                That aside, they told me the initial blurb had to be short, so if for some reason you were left itching
+                to know more, well this is the section for you, i.e. the section where people talk about fundamentally
+                objective things, such as:
+              </p>
+              <ul>
+                <li>Top 10 games of all time</li>
+                <li>Best music genre</li>
+                <li>And much, much more</li>
+              </ul>
+            </div>
+
+            <div class="blurb-section">
+              <p>
+                Addressing the elephant in the room first, we're running an honest website over here, so there is no
+                such thing as "favourite game" and/or similar concepts, and if you disagree, try putting SMB3 and The
+                Witness side to side and we'll see who's flabbergasted then. That said, I never refuse the opportunity
+                to shoutout some of the good folks who've done so much stellar work over the years, so without running
+                late, here's the shoutout track straight from my mixtape:
+              </p>
+              <ul>
+                <li>Shoutout to Treasure, and whatever rests of them</li>
+                <li>To the late Team Ico, and to what their future may bring</li>
+                <li>To the OG ragtag bunch that used to make up Game Freak</li>
+                <li>To all the Capcom divisions, sub-teams, and spun-off studios</li>
+                <li>To Looking Glass studios and everything adjacent to them</li>
+                <li>To all the early 2000's Sega subsidiaries and everyone involved</li>
+              </ul>
+              <p>
+                And to everyone else who would rightfully make the list, but would so increasing its size to
+                non-supported browser lengths. Special edge case to everyone making Cave Story clones, or so-called
+                "indies", for keep pushing the medium forward. Sorry for putting you all in one bag, but as Guile says
+                when he wins in SF2 (sort of), "All games are great".
+              </p>
+            </div>
+
+            <div class="blurb-section">
+              <p>
+                Moving on to non-game related things, you can probably catch me scouring around the internet, most
+                likely on some Wikipedia article, which might or might not correlate to some major interests. Biology is
+                always a big recurrent topic though; I didn't pick the class three years straight just because it was
+                easier than Physics (I swear I like my plants!).
+              </p>
+              <p>
+                If I'm not wandering around looking for things to read, I'm probing around for things to listen to.
+                Never forget that Bandcamp is your friend (hope this ages well), from progression defying Dream Theater
+                to the minimalism of Steve Reich, which is my best shot at avoiding the above-mentioned statement.
+                Chances are though, if it has an MF DOOM style accordion, I'm probably in. Special shoutout to the UK
+                club scene, giving us straight bangers for countless decades.
+              </p>
+            </div>
+
+            <div class="blurb-section">
+              <p>
+                Since there isn't anything that lasts forever though, not even well thought out rants, I'll wrap it
+                up here for everyone's sake. If you scrolled all the way down in hopes of finding some last hidden
+                project from the portfolio, you're in luck, because that's what this website is. Heads-up though, I'm
+                not a big "browser person". All in all, that's about it. What other secrets may be lying ahead hidden
+                in plain sight? Were there more than two arcs? Não percam o próximo episódio porque nós, também não!
+              </p>
+            </div>
+
           </div>
-
         </div>
-
       </div>
     </div>
+
+    <footer>
+      <div class="d-flex justify-content-center">
+        <div class="divider"></div>
+      </div>
+      <p class="year-dif"></p>
+    </footer>
+
   </section>
   <!-- ======= End End Section ======= -->
 

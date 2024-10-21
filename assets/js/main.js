@@ -35,6 +35,9 @@ $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
         $(hash).addClass('section-show');
       }
 
+      // Scroll to top
+      window.scrollTo(0, 0);
+
       return false;
     }
   }
@@ -84,7 +87,7 @@ $('.tldr-button').click(function () {
 // --- || JavaScript || ---
 window.onload = (event) => {
   //Instantly displays "about" page, simulating a nav click.
-  document.getElementById('proj-link').click();
+  document.getElementById('about-link').click();
 
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
@@ -100,15 +103,26 @@ function switchToggleBehaviour() {
   const profilePic = document.getElementById("profile-pic");
   const profilePicSrc = document.getElementById("profile-pic").currentSrc;
   const altProfilePicSrc = document.getElementById("alt-profile-pic").currentSrc;
+  const hiddenProfilePicSrc = document.getElementById("hidden-profile-pic").currentSrc;
   const hover = document.getElementById("hovereffect");
 
+  let toggleCounter = 0;
+  let toggleCounterLimit = 10;
+
   darkModeToggle.addEventListener("click", function (event) {
+    toggleCounter++;
+
     if (event.target.checked) {
-      hover.classList.add("alt");
-      profilePic.src = altProfilePicSrc;
+      if (toggleCounter >= toggleCounterLimit) {
+        toggleCounter = 0;
+        profilePic.src = hiddenProfilePicSrc;
+      } else {
+        profilePic.src = altProfilePicSrc;
+        hover.classList.add("alt");
+      }
     } else {
-      hover.classList.remove("alt");
       profilePic.src = profilePicSrc;
+      hover.classList.remove("alt");
     }
   });
 }
@@ -117,7 +131,11 @@ function footerDateManagement() {
   const updateYear = 2024;
   const dif = new Date().getFullYear() - updateYear;
   const footerString = "Last online " + dif + " years ago | " + updateYear;
-  document.getElementById("year-dif").innerHTML = footerString;
+  let footers = document.querySelectorAll('.year-dif');
+
+  for (let i = 0; i < footers.length; ++i) {
+    footers[i].innerHTML = footerString;
+  }
 }
 
 function setupIsotopes(ammount) {
