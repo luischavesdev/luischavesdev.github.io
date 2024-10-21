@@ -95,7 +95,7 @@ window.onload = (event) => {
   footerDateManagement();
 
   // Sets up the various project categories filters
-  setupIsotopes(3)
+  setupIsotopes(2)
 };
 
 function switchToggleBehaviour() {
