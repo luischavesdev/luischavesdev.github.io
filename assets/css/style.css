@@ -1,18 +1,53 @@
 /*--------------------------------------------------------------
-# General
+# Vars
 --------------------------------------------------------------*/
-
 :root {
-  --unpure-white: #dee2e6;
-  --background-dark: #010e1b;
-  --background-light: #09203a;
-  --background-lighter: #042e5f;
-  --neon-green: #12d640;
-  --dark-green: #1c7d32;
-  --bright-orange: #ffc107;
-  --muted-orange: #9e7f25;
+  /* Colour Palette  */
+  --unpure-white: #e0e3d8;
+  --background-dark: #040a0c;
+  --background-light: #061d28;
+  --background-lighter: #085062;
+
+  --muted-green: #779071;
+  --mid-green: #5e6c44;
+  --dark-green: #35543d;
+
+  --vivid-orange: #ef5417;
+  --light-orange: #eca124;
+  --lighter-orange: #cc8f2b;
+  
+  /* Specific Cases */
+  --job-pos: var(--lighter-orange);
+
+  --social-links: var(--dark-green);
+  --social-links-hover: var(--mid-green);
+
+  --proj-company: var(--lighter-orange);
+  --highlight-header: var(--unpure-white);
+  --highlight-header-2: var(--lighter-orange);
+  --project-tags: var(--lighter-orange);
+
+  --skill-icons: var(--light-orange);
+
+  --links: var(--mid-green);
+  --links-hover: var(--muted-green);
+
+  --checkit-button: var(--light-orange);
+  --tldr-button: var(--light-orange);
+  --project-header: var(--lighter-orange);
+
+  --edu-header: var(--light-orange);
+  --edu-icon: var(--light-orange);
+  --edu-header-2: var(--lighter-orange);
+
+  --filter-hover: var(--dark-green);
+
+  --end-header: var(--lighter-orange);
 }
 
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
   color: var(--unpure-white); 
@@ -38,11 +73,11 @@ body::before {
 }
 
 a {
-  color: var(--neon-green); 
+  color: var(--links);
 }
 
 a:hover {
-  color: #12d640; /* colortag: can be different */
+  color: var(--links-hover);
   text-decoration: none;
 }
 
@@ -65,7 +100,7 @@ p {
 .divider {
   height: 2px;
   width: 80%;
-  background: linear-gradient(90deg, hsl(0, 0%, 20%), hsl(0, 0%, 70%), hsl(0, 0%, 20%));
+  background: linear-gradient(90deg, var(--background-dark), var(--unpure-white), var(--background-dark));
   margin: 20px 0px;
 }
 
@@ -111,23 +146,6 @@ footer p {
   color: var(--unpure-white);
   line-height: 1;
   display: inline-block;
-}
-
-#header h2 {
-  font-size: 24px;
-  margin-top: 20px;
-  color: var(--neon-green);
-}
-
-#header h2 span {
-  color: #ffc107; /* colortag: not used */
-  border-bottom: 2px solid var(--dark-green);
-  padding-bottom: 6px;
-}
-
-#header img {
-  padding: 0;
-  margin: 0;
 }
 
 @media (max-width: 992px) {
@@ -182,7 +200,7 @@ footer p {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--muted-orange);
+  background-color: var(--mid-green);
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -198,7 +216,7 @@ footer p {
 .nav-menu a:hover,
 .nav-menu .active>a,
 .nav-menu li:hover>a {
-  color: var(--neon-green);
+  color: var(--vivid-orange);
   text-decoration: none;
 }
 
@@ -411,7 +429,7 @@ section .container {
   line-height: 1px;
   margin-bottom: 30px;
   text-transform: uppercase;
-  color: var(--unpure-white);
+  color: var(--job-pos);
   font-family: "Poppins", sans-serif;
 }
 
@@ -430,7 +448,7 @@ section .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--social-links);
   color: var(--unpure-white);
   line-height: 1;
   margin-right: 8px;
@@ -440,7 +458,7 @@ section .container {
 }
 
 .about-me #social-links a:hover {
-  background: var(--dark-green);
+  background: var(--social-links-hover);
 }
 
 .about-me #social-links .icon {
@@ -466,7 +484,7 @@ section .container {
   display: block;
   background: var(--unpure-white);
   border-radius: 200px;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.6),
     inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: 0.3s;
@@ -479,7 +497,7 @@ section .container {
     position: absolute;
     top: 5px;
     left: 10px;
-    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    background: linear-gradient(180deg, var(--lighter-orange), var(--light-orange));
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -499,7 +517,7 @@ section .container {
 
     &.icon-bald {
       left: 46px;
-      fill: #7e7e7e;
+      fill: var(--dark-green);
       transition: 0.3s;
     }
   }
@@ -511,17 +529,17 @@ section .container {
   visibility: hidden;
 
   &:checked+label {
-    background: #242424;
+    background: var(--background-dark);
 
     &:after {
       left: 74px;
       transform: translateX(-100%);
-      background: linear-gradient(180deg, #777, #3a3a3a);
+      background: linear-gradient(180deg, var(--background-lighter), var(--background-light));
     }
 
     svg {
       &.icon-hair {
-        fill: #7e7e7e;
+        fill: var(--dark-green);
       }
 
       &.icon-bald {
@@ -614,10 +632,16 @@ section .container {
 .highlights .icon-box p.proj-company {
   margin: 5px 0px;
   font-size: 14px;
+  color: var(--proj-company);
 }
 
 .highlights .icon-box h5 {
   padding-bottom: 10px;
+  color: var(--highlight-header);
+}
+
+.highlights .icon-box h6 {
+  color: var(--highlight-header-2);
 }
 
 .highlights .icon-box ul {
@@ -637,14 +661,14 @@ section .container {
 }
 
 .highlights .project-tag {
-  background: var(--dark-green);
+  background: var(--project-tags);
   border-radius: 10px;
   margin: 10px 20px;
   margin-top: 0px;
 }
 
 .highlights .project-tag:hover {
-  background: var(--dark-green);
+  background: var(--project-tags);
 }
 
 .highlights .project-tag p {
@@ -665,7 +689,7 @@ section .container {
   font-size: 16px;
   padding: 16px 32px;
   margin: 4px 2px;
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--checkit-button);
   border-radius: 10px;
   transition-duration: 0.4s;
   color: var(--unpure-white);
@@ -682,7 +706,7 @@ section .container {
 }
 
 .lightbox-details .check-proj-link:hover {
-  background-color: var(--dark-green);
+  background-color: var(--checkit-button);
 }
 
 .lightbox-details .lightbox-sub-header {
@@ -699,10 +723,10 @@ section .container {
 }
 
 .lightbox-details .lightbox-sub-header .tldr-button:hover {
-  color: var(--dark-green);
+  color: var(--tldr-button);
 
   svg {
-    fill: var(--dark-green);
+    fill: var(--tldr-button);
   }
 }
 
@@ -714,7 +738,7 @@ section .container {
 
 /* Body */
 .lightbox-details h6 {
-  color: var(--dark-green);
+  color: var(--project-header);
   font-size: 20px;
   padding-bottom: 5px;
 }
@@ -733,7 +757,7 @@ section .container {
 }
 
 .lightbox-details .project-tag {
-  background: var(--dark-green);
+  background: var(--project-tags);
   border-radius: 10px;
   margin: 10px 20px;
   margin-top: 0px;
@@ -760,7 +784,7 @@ section .container {
 
 .skills .icon-box .icon {
   padding-right: 10px;
-  fill: var(--neon-green);
+  fill: var(--skill-icons);
   width: 50px;
   height: 50px;
 }
@@ -773,7 +797,7 @@ section .container {
 }
 
 .skills .icon-box:hover {
-  background: #042b56eb;
+  background: var(--background-lighter);
 }
 
 /*--------------------------------------------------------------
@@ -791,8 +815,12 @@ section .container {
   margin: 20px 0px;
 }
 
+.edu .icon-box:hover {
+  background: var(--background-lighter);
+}
+
 .edu .icon-box h4 {
-  color: var(--neon-green);
+  color: var(--edu-header);
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
@@ -805,20 +833,17 @@ section .container {
 }
 
 .edu .icon:hover {
-  fill: var(--neon-green);
+  fill: var(--edu-icon);
 }
 
 .edu .icon-box .establishment {
   font-size: 16px;
   margin-bottom: 10px;
+  color: var(--edu-header-2);
 }
 
 .edu .icon-box .description {
   padding-left: 24px;
-}
-
-.edu .icon-box:hover {
-  background: var(--background-lighter);
 }
 
 /*--------------------------------------------------------------
@@ -855,7 +880,7 @@ section .container {
 
 .projects .projects-filters li:hover,
 .projects .projects-filters li.filter-active {
-  background: var(--dark-green);
+  background: var(--filter-hover);
 }
 
 .projects .projects-item {
@@ -993,7 +1018,7 @@ section .container {
   line-height: 24px;
   margin-bottom: 30px;
   text-transform: uppercase;
-  color: var(--unpure-white);
+  color: var(--end-header);
   font-family: "Poppins", sans-serif;
 }
 
