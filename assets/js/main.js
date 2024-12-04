@@ -83,6 +83,10 @@ $('.tldr-button').click(function () {
   }, 500);
 });
 
+$('.rupee-button').click(function () {
+  $('#rupee-audio')[0].play();
+});
+
 
 // --- || JavaScript || ---
 window.onload = (event) => {

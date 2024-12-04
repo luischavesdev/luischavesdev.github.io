@@ -15,7 +15,7 @@
   --vivid-orange: #ef5417;
   --light-orange: #eca124;
   --lighter-orange: #cc8f2b;
-  
+
   /* Specific Cases */
   --job-pos: var(--lighter-orange);
 
@@ -50,7 +50,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: var(--unpure-white); 
+  color: var(--unpure-white);
   position: relative;
   background: transparent;
 }
@@ -64,6 +64,16 @@ body::before {
   right: 0;
   top: 0;
   height: 100vh;
+}
+
+body#secret {
+  min-height: 100vh;
+}
+
+body#secret::before {
+  background-image: url(../img/rocks.jpg);
+  background-repeat: repeat;
+  background-size: auto;
 }
 
 @media (min-width: 1024px) {
@@ -1024,4 +1034,44 @@ section .container {
 
 .end .blurb-section {
   margin-bottom: 8ex;
+}
+
+/*--------------------------------------------------------------
+# Secret
+--------------------------------------------------------------*/
+#secret .container.secret {
+  padding-left: 96px;
+  padding-right: 96px;
+}
+
+#secret .main-col {
+  background-color: black;
+}
+
+#secret .message h1{
+  font-family: "Press Start 2P", sans-serif;
+  text-align: center;
+  font-size: 1.5vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  margin-left: 12vw;
+  margin-right: 12vw;
+}
+
+#secret .moblin img{
+  padding-bottom: 1vw;
+}
+
+#secret .rupee-button{
+  background-image: url(../img/rupee.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  outline: none;
+  border: none;
+  width: 3vw;
+  height: 3vw;
+}
+
+#secret .rupee{
+  padding-bottom: 8vw;
 }
