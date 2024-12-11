@@ -757,6 +757,10 @@ section .container {
   padding-bottom: 20px;
 }
 
+.lightbox-details .divider {
+  margin-bottom: 30px;
+}
+
 .lightbox-details #tldr {
   padding-top: 30px;
 }
