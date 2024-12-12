@@ -91,7 +91,8 @@ $('.rupee-button').click(function () {
 // --- || JavaScript || ---
 window.onload = (event) => {
   //Instantly displays "about" page, simulating a nav click.
-  document.getElementById('about-link').click();
+  document.getElementsByClassName('about-link')[0].click();
+  document.getElementsByClassName('about-link')[1].parentElement.classList.add("active");
 
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();

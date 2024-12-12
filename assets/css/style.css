@@ -448,6 +448,10 @@ section .container {
   margin-right: 30px;
 }
 
+.about-me #about-blurb-p2 {
+  margin-right: 30px;
+}
+
 .about-me #social-links {
   margin-top: 10px;
   margin-bottom: 10px;
