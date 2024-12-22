@@ -145,13 +145,68 @@ function footerDateManagement() {
 
 function setupIsotopes(ammount) {
 
+  let projCustomOrder = [
+    [
+      "Metallic Mayhem",
+      "Yellow Sky",
+      "Onis",
+      "Anemoia Damacy",
+      "Bonzios SP 9.5",
+      "Point of View",
+      "Beet Up: Raddish Edition",
+      "Get Souped!",
+      "Ballad for MIDI",
+      "How to Summon a Cat"
+    ],
+    [
+      "Binaural Plugin",
+      "C++ Game Engine",
+      "Simulation Simulator",
+      "Tetris Klone",
+      "UE4 C++ Prototypes",
+      "Socialmind"
+    ]
+  ]
+
+  let projChronologicalOrder = [
+    [
+      "Get Souped!",
+      "Metallic Mayhem",
+      "How to Summon a Cat",
+      "Ballad for MIDI",
+      "Bonzios SP 9.5",
+      "Anemoia Damacy",
+      "Beet Up: Raddish Edition",
+      "Yellow Sky",
+      "Onis",
+      "Point of View"
+    ],
+    [
+      "Simulation Simulator",
+      "Tetris Klone",
+      "Socialmind",
+      "Binaural Plugin",
+      "C++ Game Engine",
+      "UE4 C++ Prototypes"
+    ]
+  ]
+
   for (let i = 0; i < ammount; ++i) {
     let stringIndex = (i + 1).toString()
 
     let isotopeRef = new Isotope('.projects-isotope' + stringIndex, {
       itemSelector: '.proj-item' + stringIndex,
       layoutMode: 'fitRows',
-      getSortData: { custom: '.custom parseInt', chronological: '.chronological parseInt' }
+      getSortData: {
+        custom: function (itemElem) {
+          var name = itemElem.querySelector('.proj-name').textContent;
+          return parseFloat(projCustomOrder[i].indexOf(name));
+        },
+        chronological: function (itemElem) {
+          var name = itemElem.querySelector('.proj-name').textContent;
+          return parseFloat(projChronologicalOrder[i].indexOf(name));
+        }
+      }
     });
 
     let filtersElem = document.querySelectorAll('#filters' + stringIndex + ' li');
