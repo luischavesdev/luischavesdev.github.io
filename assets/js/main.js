@@ -133,7 +133,7 @@ function switchToggleBehaviour() {
 }
 
 function footerDateManagement() {
-  const updateYear = 2024;
+  const updateYear = 2025;
   const dif = new Date().getFullYear() - updateYear;
   const footerString = "Last online " + dif + " years ago | " + updateYear;
   let footers = document.querySelectorAll('.year-dif');
