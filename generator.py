@@ -4,6 +4,61 @@ from bs4 import BeautifulSoup
 import re, os, sys, json, markdown, yaml, markdown_it
 
 
+def inject_project_highlights(source_html_file):
+    highlight_template_html = get_html_at_file_location(
+        "templates/project-highlight.html"
+    )
+
+    tag_template_html = get_html_at_file_location("templates/project-tag.html")
+
+    with open("data/project-highlights.json", "r") as json_file:
+        highlights_json = json.load(json_file)
+
+    highlights_html = []
+    for highlight_idx, highlight_entry in enumerate(highlights_json):
+
+        # Create a string with all the description list items
+        description_html = []
+        for description_idx, description_entry in enumerate(
+            highlights_json[highlight_idx]["description"]
+        ):
+            description_html.append(
+                "<li>"
+                + highlights_json[highlight_idx]["description"][description_idx]
+                + "</li>"
+            )
+        description_html = "".join(description_html)
+
+        # Create a string with all the tag elements
+        tags_html = []
+        for tag_idx, tag_entry in enumerate(highlights_json[highlight_idx]["tags"]):
+            next_tag_template = tag_template_html.format(
+                data_0=highlights_json[highlight_idx]["tags"][tag_idx]
+            )
+            tags_html.append(next_tag_template)
+        tags_html = "".join(tags_html)
+
+        next_template = highlight_template_html.format(
+            data_0=highlights_json[highlight_idx]["title"],
+            data_1=highlights_json[highlight_idx]["link"],
+            data_2=highlights_json[highlight_idx]["bannerURL"],
+            data_3=highlights_json[highlight_idx]["bannerAlt"],
+            data_4=highlights_json[highlight_idx]["type"],
+            data_5=highlights_json[highlight_idx]["date"],
+            data_6=highlights_json[highlight_idx]["teamSize"],
+            data_7=highlights_json[highlight_idx]["duration"],
+            data_8=highlights_json[highlight_idx]["employment"],
+            data_9=description_html,
+            data_10=tags_html,
+        )
+        highlights_html.append(next_template)
+
+    highlights_html = "".join(highlights_html)
+    inject_html_into_file_at_target(
+        highlights_html, source_html_file, "index.html", "highlights-generation"
+    )
+
+
 def inject_skill_panels(source_html_file):
     skill_template_html = get_html_at_file_location("templates/skill-panel.html")
 
@@ -18,9 +73,34 @@ def inject_skill_panels(source_html_file):
         )
         skills_html.append(next_template)
 
-    final_skills_html = "".join(skills_html)
+    skills_html = "".join(skills_html)
     inject_html_into_file_at_target(
-        final_skills_html, source_html_file, "index.html", "skill-generation"
+        skills_html, source_html_file, "index.html", "skill-generation"
+    )
+
+
+def inject_education_panels(source_html_file):
+    education_template_html = get_html_at_file_location(
+        "templates/education-panel.html"
+    )
+
+    with open("data/education.json", "r") as json_file:
+        education_json = json.load(json_file)
+
+    education_html = []
+    for skill_idx, skill_entry in enumerate(education_json):
+        next_template = education_template_html.format(
+            data_0=education_json[skill_idx]["title"],
+            data_1=education_json[skill_idx]["link"],
+            data_2=education_json[skill_idx]["date"],
+            data_3=education_json[skill_idx]["establishment"],
+            data_4=education_json[skill_idx]["description"],
+        )
+        education_html.append(next_template)
+
+    education_html = "".join(education_html)
+    inject_html_into_file_at_target(
+        education_html, source_html_file, "index.html", "education-generation"
     )
 
 
@@ -31,79 +111,9 @@ def inject_footers(source_html_file):
     )
 
 
-# -------------------------------
-# -----------------//ART//-------------
-# ------------------------
+# --- || Utilities || ---
 
 
-def inject_art_panels():
-    art_html = []
-    art_template = get_html_at_file_location("templates/art-panel.html")
-    for filename in os.listdir("art"):
-        file_path = os.path.join("art", filename)
-        next_template = art_template.format(data_0=file_path)
-        art_html.append(next_template)
-    art_html = "".join(art_html)
-    inject_html_into_file_at_target(art_html, "base.html", "art.html", "gameData")
-
-
-# -------------------------------
-# -----------------//BLOG//-------------
-# ------------------------
-
-
-def inject_blog_links():
-    blog_links_html = []
-    blog_link_template = get_html_at_file_location("templates/blog-link.html")
-    sorted_blog_paths = get_all_blog_paths()
-    for blog_path in sorted_blog_paths:
-        with open(blog_path, "r", encoding="utf-8") as file:
-            markdown_content = file.readlines()
-        yaml_data = get_yaml_object_from_markdown_content(markdown_content)
-        next_template = blog_link_template.format(
-            data_0=yaml_data["link"],
-            data_1=yaml_data["title"],
-            data_2=yaml_data["date"],
-        )
-        blog_links_html.append(next_template)
-    blog_links_html = "".join(blog_links_html)
-    inject_html_into_file_at_target(
-        blog_links_html, "base.html", "blog.html", "blogLinks", "ul"
-    )
-
-
-def get_all_blog_paths():
-    blog_dirs = []
-    for dir_name in os.listdir("posts"):
-        for filename in os.listdir(os.path.join("posts", dir_name)):
-            if filename.endswith(".md"):
-                blog_dirs.append(os.path.join("posts", dir_name, filename))
-    return blog_dirs[::-1]
-
-
-def create_blog_pages():
-    for blog_path in get_all_blog_paths():
-        with open(blog_path, "r", encoding="utf-8") as file:
-            markdown_content = file.readlines()
-        yaml_data = get_yaml_object_from_markdown_content(markdown_content)
-        create_blog_page(blog_path, yaml_data["link"])
-
-
-def create_blog_page(markdown_file, destination):
-    md = markdown_it.MarkdownIt()
-    with open(markdown_file, "r", encoding="utf-8") as md_file:
-        md_content = md_file.read()
-    front_matter_end = md_content.find("---", 1)
-    if front_matter_end != -1:
-        md_content = md_content[front_matter_end + 3 :]  # Skip "---"
-    blog_html = md.render(md_content)
-    inject_html_into_file_at_target(blog_html, "base.html", destination, "blogPost")
-    make_links_relative_to_directory_level(destination)
-
-
-# -------------------------------
-# -----------------//UTILITIES//-------------
-# ------------------------
 def get_html_at_file_location(file_location):
     with open(file_location, "r", encoding="utf-8") as file:
         return file.read()
@@ -126,7 +136,7 @@ def inject_html_into_file_at_target(
         found_divs = [found_divs]
 
     for target_div in found_divs:
-        # Cleans up whatever the div may have in case  this is running over previously generated elements
+        # Cleans up whatever the div may have in case this is running over previously generated elements
         for child in target_div.find_all():
             child.decompose()
 
@@ -141,52 +151,17 @@ def clean_generated_stuff():
     os.remove("index.html")
 
 
-def get_yaml_object_from_markdown_content(markdown_lines):
-    if markdown_lines[0].strip() == "---":
-        front_matter_end = markdown_lines.index("---\n", 1)
-        front_matter_content = "".join(markdown_lines[1:front_matter_end])
-        front_matter = yaml.safe_load(front_matter_content)
-    return front_matter
+# --- || Main || ---
 
-
-def make_links_relative_to_directory_level(html_file):
-    with open(html_file, "r", encoding="utf-8") as file:
-        soup = BeautifulSoup(file, "html.parser")
-
-    link_elements = soup.find_all("a", href=True) + soup.find_all("link", href=True)
-    for link in link_elements:
-        href = link["href"]
-        if not href.startswith("http") and not href.startswith("#"):
-            link["href"] = "../" + href
-    img_elements = soup.find_all("img", href=False)
-    for img in img_elements:
-        src = img["src"]
-        if not href.startswith("http") and not href.startswith("#"):
-            img["src"] = "../" + src
-    source_elements = soup.find_all("source", href=False)
-    for elem in source_elements:
-        src = elem["src"]
-        if not href.startswith("http") and not href.startswith("#"):
-            elem["src"] = "../" + src
-    script_elements = soup.find_all("script", href=False)
-    for script in script_elements:
-        src = script["src"]
-        if not href.startswith("http") and not href.startswith("#"):
-            script["src"] = "../" + src
-
-    with open(html_file, "w", encoding="utf-8") as file:
-        file.write(soup.prettify())
-
-
-# -------------------------------
-# -----------------//MAIN//-------------
-# ------------------------
 
 if __name__ == "__main__":
     if "--clean" in sys.argv:
         clean_generated_stuff()
     else:
         source_to_use = "pregen-index.html"
-        inject_skill_panels(source_to_use)
-        source_to_use = "index.html"
         inject_footers(source_to_use)
+
+        source_to_use = "index.html"
+        inject_project_highlights(source_to_use)
+        inject_skill_panels(source_to_use)
+        inject_education_panels(source_to_use)

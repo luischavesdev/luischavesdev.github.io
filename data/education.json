@@ -1,0 +1,16 @@
+[
+	{
+		"title": "Master's degree - Digital Game Development",
+		"link": "https://www.ua.pt/en/curso/513",
+		"date": "2022 - 2024",
+		"establishment": "University of Aveiro",
+		"description": "Continuing the process of experimenting with game tools by making small projects in tiny teams, this Master's Degree also allowed me to explore other subjects from adjacent courses, such as Android Development and Reinforcement Learning, which are part of the usual Computer Science curriculum. As per usual, other topics were approached, such as image processing, game narrative, Arduino development, among others."
+	},
+	{
+		"title": "Bachelor's degree - Games and Multimedia",
+		"link": "https://www.ipleiria.pt/en/course/undergraduate-in-games-and-multimedia",
+		"date": "2019 - 2022",
+		"establishment": "Polytechnic of Leiria",
+		"description": "At IPL, I had the opportunity to immerse myself in the game development ecosystem, from digital drawing techniques, to UI/UX development, and of course, extensive coding experience. Developing several game projects lent me knowledge with multiple game engines such as Unity and Unreal, as well as C# and C++ know-how. Being an interdisciplinary course, I also dipped my toes in game design, sound design, and web development."
+	}
+]
