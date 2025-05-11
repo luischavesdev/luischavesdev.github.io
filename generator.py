@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import re, os, sys, json, markdown, yaml, markdown_it
 
 
-def inject_skill_panels():
+def inject_skill_panels(source_html_file):
     skill_template_html = get_html_at_file_location("templates/skill-panel.html")
 
     with open("data/skills.json", "r") as json_file:
@@ -19,9 +19,15 @@ def inject_skill_panels():
         skills_html.append(next_template)
 
     final_skills_html = "".join(skills_html)
-
     inject_html_into_file_at_target(
-        final_skills_html, "pregen-index.html", "index.html", "skill-generation"
+        final_skills_html, source_html_file, "index.html", "skill-generation"
+    )
+
+
+def inject_footers(source_html_file):
+    footer_html = get_html_at_file_location("templates/footer.html")
+    inject_html_into_file_at_target(
+        footer_html, source_html_file, "index.html", "footer-generation", "footer", True
     )
 
 
@@ -95,18 +101,6 @@ def create_blog_page(markdown_file, destination):
     make_links_relative_to_directory_level(destination)
 
 
-def inject_footers():
-    footer_html = get_html_at_file_location("templates/footer.html")
-    inject_html_into_file_at_target(footer_html, "index.html", "index.html", "footer")
-    inject_html_into_file_at_target(footer_html, "about.html", "about.html", "footer")
-
-
-def inject_headers():
-    header_html = get_html_at_file_location("templates/header.html")
-    inject_html_into_file_at_target(header_html, "index.html", "index.html", "header")
-    inject_html_into_file_at_target(header_html, "about.html", "about.html", "header")
-
-
 # -------------------------------
 # -----------------//UTILITIES//-------------
 # ------------------------
@@ -114,37 +108,37 @@ def get_html_at_file_location(file_location):
     with open(file_location, "r", encoding="utf-8") as file:
         return file.read()
 
+
 def inject_html_into_file_at_target(
-    inject_html, source_html, output_name, target_id, element_type="div"
+    inject_html, source_html, output_name, target_id, element_type="div", multiple=False
 ):
     soup = BeautifulSoup(get_html_at_file_location(source_html), "html.parser")
-    target_div = soup.find(element_type, id=target_id)
-    if not target_div:
+    found_divs = (
+        soup.find_all(element_type, id=target_id)
+        if multiple
+        else soup.find(element_type, id=target_id)
+    )
+    if not found_divs:
         print("Target div not found in the existing HTML.")
         return
-    
-    # Cleans up whatever the div may have.
-    for child in target_div.find_all():
-        child.decompose()
-    
-    injection_soup = BeautifulSoup(inject_html, "html.parser")
-    target_div.append(injection_soup)
-    
+
+    if not multiple:
+        found_divs = [found_divs]
+
+    for target_div in found_divs:
+        # Cleans up whatever the div may have in case  this is running over previously generated elements
+        for child in target_div.find_all():
+            child.decompose()
+
+        custom_soup = BeautifulSoup(inject_html, "html.parser")
+        target_div.append(custom_soup)
+
     with open(output_name, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
 
+
 def clean_generated_stuff():
     os.remove("index.html")
-
-    #generated_pages = ["art.html", "blog.html", "tools.html", "index.html"]
-    #for page in generated_pages:
-    #    os.remove(page)
-
-    #os.chdir("blog")
-    #for file in os.listdir():
-    #    os.remove(file)
-
-
 
 
 def get_yaml_object_from_markdown_content(markdown_lines):
@@ -153,6 +147,7 @@ def get_yaml_object_from_markdown_content(markdown_lines):
         front_matter_content = "".join(markdown_lines[1:front_matter_end])
         front_matter = yaml.safe_load(front_matter_content)
     return front_matter
+
 
 def make_links_relative_to_directory_level(html_file):
     with open(html_file, "r", encoding="utf-8") as file:
@@ -191,8 +186,7 @@ if __name__ == "__main__":
     if "--clean" in sys.argv:
         clean_generated_stuff()
     else:
-        # inject_game_cards()
-        # inject_art_panels()
-        # inject_blog_links()
-        # create_blog_pages()
-        inject_skill_panels()
+        source_to_use = "pregen-index.html"
+        inject_skill_panels(source_to_use)
+        source_to_use = "index.html"
+        inject_footers(source_to_use)
