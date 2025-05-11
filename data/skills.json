@@ -1,0 +1,50 @@
+[
+	{
+		"title": "Gameplay Programming",
+		"iconID": "icon-programming"
+	},
+	{
+		"title": "C++",
+		"iconID": "icon-cpp"
+	},
+	{
+		"title": "Unreal Engine",
+		"iconID": "icon-unreal"
+	},
+	{
+		"title": "C#",
+		"iconID": "icon-csharp"
+	},
+	{
+		"title": "Unity",
+		"iconID": "icon-unity"
+	},
+	{
+		"title": "Game Design",
+		"iconID": "icon-design"
+	},
+	{
+		"title": "Godot",
+		"iconID": "icon-Godot"
+	},
+	{
+		"title": "Python",
+		"iconID": "icon-python"
+	},
+	{
+		"title": "Git",
+		"iconID": "icon-git"
+	},
+	{
+		"title": "Computer Graphics",
+		"iconID": "icon-graphics"
+	},
+	{
+		"title": "Mobile Development",
+		"iconID": "icon-mobile"
+	},
+	{
+		"title": "Agile",
+		"iconID": "icon-agile"
+	}
+]
