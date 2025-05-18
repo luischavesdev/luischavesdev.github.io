@@ -1,68 +1,24 @@
 # Props to https://github.com/jontopielski/jontopielski.github.io for a simple generator srcript I could "borrow".
 
 from bs4 import BeautifulSoup
+from pathlib import Path
 import re, os, sys, json, markdown, yaml, markdown_it
 
+TEMPLATES_FOLDER = Path("templates/")
+DATA_FOLDER = Path("data/")
+PROJECTS_FOLDER = Path("projects/")
+BANNERS_FOLDER = Path("assets/img/projects/")
 
-def inject_project_highlights(source_html_file):
-    highlight_template_html = get_html_at_file_location(
-        "templates/project-highlight.html"
-    )
 
-    tag_template_html = get_html_at_file_location("templates/project-tag.html")
-
-    with open("data/project-highlights.json", "r") as json_file:
-        highlights_json = json.load(json_file)
-
-    highlights_html = []
-    for highlight_idx, highlight_entry in enumerate(highlights_json):
-
-        # Create a string with all the description list items
-        description_html = []
-        for description_idx, description_entry in enumerate(
-            highlights_json[highlight_idx]["description"]
-        ):
-            description_html.append(
-                "<li>"
-                + highlights_json[highlight_idx]["description"][description_idx]
-                + "</li>"
-            )
-        description_html = "".join(description_html)
-
-        # Create a string with all the tag elements
-        tags_html = []
-        for tag_idx, tag_entry in enumerate(highlights_json[highlight_idx]["tags"]):
-            next_tag_template = tag_template_html.format(
-                data_0=highlights_json[highlight_idx]["tags"][tag_idx]
-            )
-            tags_html.append(next_tag_template)
-        tags_html = "".join(tags_html)
-
-        next_template = highlight_template_html.format(
-            data_0=highlights_json[highlight_idx]["title"],
-            data_1=highlights_json[highlight_idx]["link"],
-            data_2=highlights_json[highlight_idx]["bannerURL"],
-            data_3=highlights_json[highlight_idx]["bannerAlt"],
-            data_4=highlights_json[highlight_idx]["type"],
-            data_5=highlights_json[highlight_idx]["date"],
-            data_6=highlights_json[highlight_idx]["teamSize"],
-            data_7=highlights_json[highlight_idx]["duration"],
-            data_8=highlights_json[highlight_idx]["employment"],
-            data_9=description_html,
-            data_10=tags_html,
-        )
-        highlights_html.append(next_template)
-
-    highlights_html = "".join(highlights_html)
-    inject_html_into_file_at_target(
-        highlights_html, source_html_file, "index.html", "highlights-generation"
-    )
+def inject_footers(source_html_file):
+    footer_html = get_html_at_file_location(TEMPLATES_FOLDER / "footer.html")
+    inject_html_into_file_at_target(footer_html, source_html_file, "index.html", "footer-generation", "footer", True)
 
 
 def inject_skill_panels(source_html_file):
-    skill_template_html = get_html_at_file_location("templates/skill-panel.html")
+    skill_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "skill-panel.html")
 
-    with open("data/skills.json", "r") as json_file:
+    with open(DATA_FOLDER / "skills.json") as json_file:
         skills_json = json.load(json_file)
 
     skills_html = []
@@ -74,17 +30,13 @@ def inject_skill_panels(source_html_file):
         skills_html.append(next_template)
 
     skills_html = "".join(skills_html)
-    inject_html_into_file_at_target(
-        skills_html, source_html_file, "index.html", "skill-generation"
-    )
+    inject_html_into_file_at_target(skills_html, source_html_file, "index.html", "skill-generation")
 
 
 def inject_education_panels(source_html_file):
-    education_template_html = get_html_at_file_location(
-        "templates/education-panel.html"
-    )
+    education_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "education-panel.html")
 
-    with open("data/education.json", "r") as json_file:
+    with open(DATA_FOLDER / "education.json") as json_file:
         education_json = json.load(json_file)
 
     education_html = []
@@ -99,16 +51,127 @@ def inject_education_panels(source_html_file):
         education_html.append(next_template)
 
     education_html = "".join(education_html)
-    inject_html_into_file_at_target(
-        education_html, source_html_file, "index.html", "education-generation"
-    )
+    inject_html_into_file_at_target(education_html, source_html_file, "index.html", "education-generation")
 
 
-def inject_footers(source_html_file):
-    footer_html = get_html_at_file_location("templates/footer.html")
-    inject_html_into_file_at_target(
-        footer_html, source_html_file, "index.html", "footer-generation", "footer", True
-    )
+# --- || Project Related Injection || ---
+
+
+def inject_project_highlights(source_html_file):
+    highlight_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-highlight.html")
+    tag_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-tag.html")
+
+    with open(DATA_FOLDER / "projects.json") as json_file:
+        projects_json = json.load(json_file)
+
+    with open(DATA_FOLDER / "highlights.json") as json_file:
+        highlights_json = json.load(json_file)
+
+    selected_data = []
+    for category_idx, category_entry in enumerate(projects_json):
+        for project_idx, project_entry in enumerate(projects_json[category_idx]):
+
+            # Check if project is highlight project
+            is_in_highlights = False
+            for highlight_idx, highlight_entry in enumerate(highlights_json):
+                if projects_json[category_idx][project_idx]["title"] == highlights_json[highlight_idx]:
+                    is_in_highlights = True
+            if not is_in_highlights:
+                continue
+
+            # Create a string with all the description list items
+            description_html = []
+            for description_idx, description_entry in enumerate(projects_json[category_idx][project_idx]["tldr"]):
+                description_html.append(
+                    "<li>" + projects_json[category_idx][project_idx]["tldr"][description_idx] + "</li>"
+                )
+            description_html = "".join(description_html)
+
+            # Create a string with all the tag elements
+            tags_html = []
+            for tag_idx, tag_entry in enumerate(projects_json[category_idx][project_idx]["tags"]):
+                next_tag_template = tag_template_html.format(
+                    data_0=projects_json[category_idx][project_idx]["tags"][tag_idx]
+                )
+                tags_html.append(next_tag_template)
+            tags_html = "".join(tags_html)
+
+            # Store all the needed highlight project data
+            selected_data.append(
+                [
+                    projects_json[category_idx][project_idx]["title"],
+                    PROJECTS_FOLDER / projects_json[category_idx][project_idx]["link"],
+                    BANNERS_FOLDER / projects_json[category_idx][project_idx]["bannerURL"],
+                    projects_json[category_idx][project_idx]["bannerAlt"],
+                    projects_json[category_idx][project_idx]["context"],
+                    projects_json[category_idx][project_idx]["date"],
+                    projects_json[category_idx][project_idx]["teamSize"],
+                    projects_json[category_idx][project_idx]["duration"],
+                    projects_json[category_idx][project_idx]["employment"],
+                    description_html,
+                    tags_html,
+                ]
+            )
+
+    # Create final html string ordered by the highlights json file
+    highlights_html = []
+    for highlight_idx, highlight_entry in enumerate(highlights_json):
+        data_to_use = ""
+        for project_data in selected_data:
+            if project_data[0] == highlights_json[highlight_idx]:
+                data_to_use = project_data
+
+        if data_to_use != "":
+            next_template = highlight_template_html.format(
+                data_0=data_to_use[0],
+                data_1=data_to_use[1],
+                data_2=data_to_use[2],
+                data_3=data_to_use[3],
+                data_4=data_to_use[4],
+                data_5=data_to_use[5],
+                data_6=data_to_use[6],
+                data_7=data_to_use[7],
+                data_8=data_to_use[8],
+                data_9=data_to_use[9],
+                data_10=data_to_use[10],
+            )
+
+            highlights_html.append(next_template)
+
+    highlights_html = "".join(highlights_html)
+    inject_html_into_file_at_target(highlights_html, source_html_file, "index.html", "highlights-generation")
+
+
+def inject_project_cards(source_html_file):
+    card_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-card.html")
+
+    with open(DATA_FOLDER / "projects.json") as json_file:
+        projects_json = json.load(json_file)
+
+    for category_idx, category_entry in enumerate(projects_json):
+
+        cards_html = []
+        for project_idx, project_entry in enumerate(projects_json[category_idx]):
+
+            # Create a string with all project filters
+            filters_html = []
+            for filter_idx, filter_entry in enumerate(projects_json[category_idx][project_idx]["filters"]):
+                filters_html.append(" filter-" + projects_json[category_idx][project_idx]["filters"][filter_idx])
+            filters_html = "".join(filters_html)
+
+            next_template = card_template_html.format(
+                data_0=projects_json[category_idx][project_idx]["title"],
+                data_1=(category_idx+1),
+                data_2=filters_html,
+                data_3=BANNERS_FOLDER / projects_json[category_idx][project_idx]["bannerURL"],
+                data_4=projects_json[category_idx][project_idx]["bannerAlt"],
+                data_5=projects_json[category_idx][project_idx]["tldr"][0][:-1],
+                data_6=PROJECTS_FOLDER / projects_json[category_idx][project_idx]["link"],
+            )
+            cards_html.append(next_template)
+
+        cards_html = "".join(cards_html)
+        inject_html_into_file_at_target(cards_html, source_html_file, "index.html", ("projects-generation" + str(category_idx+1)))
 
 
 # --- || Utilities || ---
@@ -119,15 +182,13 @@ def get_html_at_file_location(file_location):
         return file.read()
 
 
+# Pass multiple true if we want to inject at multiple points on target file
 def inject_html_into_file_at_target(
     inject_html, source_html, output_name, target_id, element_type="div", multiple=False
 ):
     soup = BeautifulSoup(get_html_at_file_location(source_html), "html.parser")
-    found_divs = (
-        soup.find_all(element_type, id=target_id)
-        if multiple
-        else soup.find(element_type, id=target_id)
-    )
+    found_divs = soup.find_all(element_type, id=target_id) if multiple else soup.find(element_type, id=target_id)
+
     if not found_divs:
         print("Target div not found in the existing HTML.")
         return
@@ -165,3 +226,4 @@ if __name__ == "__main__":
         inject_project_highlights(source_to_use)
         inject_skill_panels(source_to_use)
         inject_education_panels(source_to_use)
+        inject_project_cards(source_to_use)
