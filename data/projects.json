@@ -119,9 +119,211 @@
 				"Sound Design",
 				"Git"
 			]
+		},
+		{
+			"title": "Bonzios SP 9.5",
+			"link": "bonzios.html",
+			"bannerURL": "bonzios-banner.gif",
+			"bannerAlt": "Bonzios banner",
+			"filters": [
+				"godot",
+				"jam"
+			],
+			"context": "Game Jam",
+			"date": "2023",
+			"teamSize": "4",
+			"duration": "3 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Chaotic time-attack game.",
+				"Developed in Godot.",
+				"Made for Ludum Dare 54, with \"Limited Space\" as a theme.",
+				"Windows 95 inspired visuals and gameplay.",
+				"Was part of the regular game development workforce.",
+				"Contributed to design and development like everyone else.",
+				"More specifically, tackled different \"enemy\" files."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Godot",
+				"Game Design",
+				"Git"
+			]
+		},
+		{
+			"title": "Point of View",
+			"link": "pov.html",
+			"bannerURL": "pov-banner.jpg",
+			"bannerAlt": "Point of View banner",
+			"filters": [
+				"unreal",
+				"jam"
+			],
+			"context": "Game Jam",
+			"date": "2021",
+			"teamSize": "9",
+			"duration": "2 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Online multiplayer 3rd person shooter.",
+				"Developed in Unreal.",
+				"Made for GGJ 2021, under the \"Lost and Found\" theme.",
+				"Developed the main concept of the game.",
+				"Was responsible for general gameplay programming.",
+				"Later ended up joining the network focused team."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Unreal",
+				"Game Design",
+				"Game Networking",
+				"Multiplayer"
+			]
+		},
+		{
+			"title": "Beet Up: Raddish Edition",
+			"link": "beetup.html",
+			"bannerURL": "beetup-banner.jpg",
+			"bannerAlt": "Beet Up banner",
+			"filters": [
+				"godot",
+				"jam"
+			],
+			"context": "Game Jam",
+			"date": "2023",
+			"teamSize": "6",
+			"duration": "2 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Classic arcade style game.",
+				"Developed in Godot.",
+				"Made for GGJ 2023, with \"Roots\" as a theme.",
+				"Tackled the game's dynamic collision system.",
+				"Naturally helped around with the game's conception and debug process."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Godot",
+				"Game Design",
+				"Git"
+			]
+		},
+		{
+			"title": "Get Souped!",
+			"link": "souped.html",
+			"bannerURL": "souped-banner.gif",
+			"bannerAlt": "Get Souped banner",
+			"filters": [
+				"godot",
+				"jam"
+			],
+			"context": "Game Jam",
+			"date": "2024",
+			"teamSize": "6",
+			"duration": "3 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Crowd management and damage control with Godzilla.",
+				"Developed in Godot.",
+				"Made for Ludum Dare 56, with \"Tiny Creatures\" as a theme.",
+				"Features a sketchy hand-drawn aesthetic.",
+				"Was responsible for the camera and destruction system."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Godot",
+				"Level Design",
+				"Git"
+			]
+		},
+		{
+			"title": "Ballad for MIDI",
+			"link": "ballad.html",
+			"bannerURL": "ballad-banner.jpg",
+			"bannerAlt": "Ballad for MIDI banner",
+			"filters": [
+				"godot",
+				"exercise"
+			],
+			"context": "Exercise Project",
+			"date": "2023",
+			"teamSize": "3",
+			"duration": "2 months",
+			"employment": "Part-time",
+			"tldr": [
+				"MIDI visualizer turned game.",
+				"Developed in Godot.",
+				"Made for an ethnomusicology/music media class.",
+				"Developed the original concept and design.",
+				"Interfaced with MIDI protocol to get music information in the game.",
+				"Tackled general game development as well as art direction."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Godot",
+				"Game Design",
+				"Git",
+				"UI/UX"
+			]
+		},
+		{
+			"title": "How to Summon a Cat (for dummies)",
+			"link": "summoncat.html",
+			"bannerURL": "summoncat-banner.jpg",
+			"bannerAlt": "How to Summon a Cat banner",
+			"filters": [
+				"godot",
+				"jam"
+			],
+			"context": "Game Jam",
+			"date": "2024",
+			"teamSize": "5",
+			"duration": "3 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Jam game about cat summoning.",
+				"Developed in Godot.",
+				"Made for Ludum Dare 55, with \"Summoning\" as a theme.",
+				"Was mostly responsible for implementing the cat and its inner workings."
+			],
+			"tags": [
+				"Gameplay Programming",
+				"Godot",
+				"Git"
+			]
 		}
 	],
 	[
+		{
+			"title": "Binaural Plugin",
+			"link": "sp.html",
+			"bannerURL": "sp-banner.jpg",
+			"bannerAlt": "Game engine banner",
+			"filters": [
+				"cpp",
+				"professional"
+			],
+			"context": "Sound Particles",
+			"date": "2022",
+			"teamSize": "~20",
+			"duration": "4 months",
+			"employment": "Full-time",
+			"tldr": [
+				"Developed for Sound Particles.",
+				"R&D regarding head tracking implementation.",
+				"Custom head-tracking API was then implemented in a binaural plugin.",
+				"Overarching Apple ecosystem implied technologies such as Swift and Objective-C.",
+				"Audio related context led to MIDI and OSC work being done.",
+				"Managed to implement 2 head-trackers + partial support for AirPods."
+			],
+			"tags": [
+				"C++",
+				"MIDI",
+				"JUCE",
+				"Objective-C",
+				"Bluetooth"
+			]
+		},
 		{
 			"title": "C++ Game Engine",
 			"link": "gameengine.html",
@@ -150,6 +352,123 @@
 				"SDL",
 				"Computer Graphics"
 			]
+		},
+		{
+			"title": "Simulation Simulator",
+			"link": "simulation.html",
+			"bannerURL": "simulation-banner.jpg",
+			"bannerAlt": "Simulation Simulator banner",
+			"filters": [
+				"panda3d",
+				"exercise"
+			],
+			"context": "Exercise Project",
+			"date": "2023",
+			"teamSize": "3",
+			"duration": "1 month",
+			"employment": "Part-time",
+			"tldr": [
+				"Panda3D novelty experiment.",
+				"Done to demo some CG concepts like lighting and shading.",
+				"Consists of a \"2D section\" and 3D section.",
+				"All creative work was \"outsourced\", i.e. we grabbed the audio and assets that we could.",
+				"Was responsible for the 2D portion of the project.",
+				"Helped out douse some Panda3D related fires."
+			],
+			"tags": [
+				"Panda3D",
+				"Python",
+				"Gameplay Programming",
+				"Computer Graphics",
+				"Git"
+			]
+		},
+		{
+			"title": "Tetris Klone",
+			"link": "tetris.html",
+			"bannerURL": "tetris-banner.jpg",
+			"bannerAlt": "Tetris Klone banner",
+			"filters": [
+				"mobile",
+				"exercise"
+			],
+			"context": "Exercise Project",
+			"date": "2023",
+			"teamSize": "3",
+			"duration": "1 month",
+			"employment": "Part-time",
+			"tldr": [
+				"Tetris clone done in Kotlin.",
+				"Developed for Android.",
+				"Built using pure Kotlin.",
+				"Online leaderboard done with Firebase.",
+				"Was responsible for the actual game side of things, i.e. building Tetris, the game&trade;."
+			],
+			"tags": [
+				"Kotlin",
+				"Mobile Development",
+				"Gameplay Programming",
+				"Firebase",
+				"Android"
+			]
+		},
+		{
+			"title": "UE4 C++ Prototypes",
+			"link": "prototypes.html",
+			"bannerURL": "prototypes-banner.jpg",
+			"bannerAlt": "UE4 C++ Prototypes banner",
+			"filters": [
+				"cpp",
+				"exercise"
+			],
+			"context": "Exercise Project",
+			"date": "2021",
+			"teamSize": "1~2",
+			"duration": "2 months",
+			"employment": "Part-time",
+			"tldr": [
+				"Unreal Engine prototypes done in C++.",
+				"Developed using Unreal Engine 4.",
+				"Built using C++.",
+				"Explores both C++ use as well as game networking.",
+				"Miniaturized versions of a fighting game and an online FPS."
+			],
+			"tags": [
+				"Unreal",
+				"C++",
+				"Game Networking",
+				"Gameplay Programming",
+				"Multiplayer"
+			]
+		},
+		{
+			"title": "Socialmind",
+			"link": "socialmind.html",
+			"bannerURL": "socialmind-banner.jpg",
+			"bannerAlt": "Socialmind banner",
+			"filters": [
+				"mobile",
+				"exercise"
+			],
+			"context": "Exercise Project",
+			"date": "2022",
+			"teamSize": "3",
+			"duration": "1 month",
+			"employment": "Part-time",
+			"tldr": [
+				"Mastermind meets Pokémon Go... kinda.",
+				"Developed using Flutter.",
+				"Multiplayer connection done through an MQTT broker.",
+				"Multiplayer geolocation reliant on Firebase.",
+				"Was responsible for everything broker related as well as game logic."
+			],
+			"tags": [
+				"Flutter",
+				"Mobile Development",
+				"MQTT",
+				"Firebase",
+				"Gradle"
+			]
 		}
 	],
 	[
@@ -177,6 +496,31 @@
 				"Project Management",
 				"Game Design",
 				"C#"
+			]
+		},
+		{
+			"title": "Null Gravity",
+			"link": "nullg.html",
+			"bannerURL": "nullg-banner.jpg",
+			"bannerAlt": "Null Gravity banner",
+			"filters": [],
+			"context": "Game Jam",
+			"date": "2020",
+			"teamSize": "8",
+			"duration": "2 days",
+			"employment": "Fullest-time",
+			"tldr": [
+				"Gravity manipulation platformer.",
+				"Developed in Unity.",
+				"Made for GGJ 2020, with \"Repair\" as a theme.",
+				"Was part of the level design team, besides working on general balancing of the game.",
+				"Also contributed to some gameplay logic, when the help became needed."
+			],
+			"tags": [
+				"Unity",
+				"Gameplay Programming",
+				"C#",
+				"Game Design"
 			]
 		}
 	]

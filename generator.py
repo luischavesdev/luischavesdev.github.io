@@ -18,7 +18,7 @@ def inject_footers(source_html_file):
 def inject_skill_panels(source_html_file):
     skill_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "skill-panel.html")
 
-    with open(DATA_FOLDER / "skills.json") as json_file:
+    with open(DATA_FOLDER / "skills.json", encoding="utf-8") as json_file:
         skills_json = json.load(json_file)
 
     skills_html = []
@@ -36,7 +36,7 @@ def inject_skill_panels(source_html_file):
 def inject_education_panels(source_html_file):
     education_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "education-panel.html")
 
-    with open(DATA_FOLDER / "education.json") as json_file:
+    with open(DATA_FOLDER / "education.json", encoding="utf-8") as json_file:
         education_json = json.load(json_file)
 
     education_html = []
@@ -61,10 +61,10 @@ def inject_project_highlights(source_html_file):
     highlight_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-highlight.html")
     tag_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-tag.html")
 
-    with open(DATA_FOLDER / "projects.json") as json_file:
+    with open(DATA_FOLDER / "projects.json", encoding="utf-8") as json_file:
         projects_json = json.load(json_file)
 
-    with open(DATA_FOLDER / "highlights.json") as json_file:
+    with open(DATA_FOLDER / "highlights.json", encoding="utf-8") as json_file:
         highlights_json = json.load(json_file)
 
     selected_data = []
@@ -145,7 +145,7 @@ def inject_project_highlights(source_html_file):
 def inject_project_cards(source_html_file):
     card_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-card.html")
 
-    with open(DATA_FOLDER / "projects.json") as json_file:
+    with open(DATA_FOLDER / "projects.json", encoding="utf-8") as json_file:
         projects_json = json.load(json_file)
 
     for category_idx, category_entry in enumerate(projects_json):
@@ -159,9 +159,19 @@ def inject_project_cards(source_html_file):
                 filters_html.append(" filter-" + projects_json[category_idx][project_idx]["filters"][filter_idx])
             filters_html = "".join(filters_html)
 
+            # Word-based clamp the title string to display
+            title_string = projects_json[category_idx][project_idx]["title"]
+            clamped_title = title_string
+            max_title_len = 23
+            for i in range(0, max_title_len):
+                clamped_title = " ".join(title_string.split()[:i])
+                if len(clamped_title) > max_title_len:
+                    clamped_title = " ".join(title_string.split()[: (i - 1)])
+                    break
+
             next_template = card_template_html.format(
-                data_0=projects_json[category_idx][project_idx]["title"],
-                data_1=(category_idx+1),
+                data_0=clamped_title,
+                data_1=(category_idx + 1),
                 data_2=filters_html,
                 data_3=BANNERS_FOLDER / projects_json[category_idx][project_idx]["bannerURL"],
                 data_4=projects_json[category_idx][project_idx]["bannerAlt"],
@@ -171,14 +181,16 @@ def inject_project_cards(source_html_file):
             cards_html.append(next_template)
 
         cards_html = "".join(cards_html)
-        inject_html_into_file_at_target(cards_html, source_html_file, "index.html", ("projects-generation" + str(category_idx+1)))
+        inject_html_into_file_at_target(
+            cards_html, source_html_file, "index.html", ("projects-generation" + str(category_idx + 1))
+        )
 
 
 # --- || Utilities || ---
 
 
 def get_html_at_file_location(file_location):
-    with open(file_location, "r", encoding="utf-8") as file:
+    with open(file_location, encoding="utf-8") as file:
         return file.read()
 
 
