@@ -148,6 +148,9 @@ def inject_project_cards(source_html_file):
     with open(DATA_FOLDER / "projects.json", encoding="utf-8") as json_file:
         projects_json = json.load(json_file)
 
+    with open(DATA_FOLDER / "project-ordering.json", encoding="utf-8") as json_file:
+        order_json = json.load(json_file)
+
     for category_idx, category_entry in enumerate(projects_json):
 
         cards_html = []
@@ -159,24 +162,30 @@ def inject_project_cards(source_html_file):
                 filters_html.append(" filter-" + projects_json[category_idx][project_idx]["filters"][filter_idx])
             filters_html = "".join(filters_html)
 
-            # Word-based clamp the title string to display
-            title_string = projects_json[category_idx][project_idx]["title"]
+            # Word-based clamp the title string to display. Also remove anything inside parenthesis
+            title_string = re.sub(r"\((.*?)\)", "", projects_json[category_idx][project_idx]["title"])
             clamped_title = title_string
-            max_title_len = 23
+            max_title_len = 24
             for i in range(0, max_title_len):
                 clamped_title = " ".join(title_string.split()[:i])
                 if len(clamped_title) > max_title_len:
                     clamped_title = " ".join(title_string.split()[: (i - 1)])
                     break
 
+            # Get project order from appropriate json to then store on the html element
+            custom_order = order_json["custom"][category_idx].index(projects_json[category_idx][project_idx]["title"])
+            chronological_order = order_json["chronological"][category_idx].index(projects_json[category_idx][project_idx]["title"])
+
             next_template = card_template_html.format(
                 data_0=clamped_title,
                 data_1=(category_idx + 1),
                 data_2=filters_html,
-                data_3=BANNERS_FOLDER / projects_json[category_idx][project_idx]["bannerURL"],
-                data_4=projects_json[category_idx][project_idx]["bannerAlt"],
-                data_5=projects_json[category_idx][project_idx]["tldr"][0][:-1],
-                data_6=PROJECTS_FOLDER / projects_json[category_idx][project_idx]["link"],
+                data_3=custom_order,
+                data_4=chronological_order,
+                data_5=BANNERS_FOLDER / projects_json[category_idx][project_idx]["bannerURL"],
+                data_6=projects_json[category_idx][project_idx]["bannerAlt"],
+                data_7=projects_json[category_idx][project_idx]["tldr"][0][:-1],
+                data_8=PROJECTS_FOLDER / projects_json[category_idx][project_idx]["link"],
             )
             cards_html.append(next_template)
 
