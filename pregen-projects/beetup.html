@@ -1,0 +1,35 @@
+<h6>Description</h6>
+<p>
+  Beet Up is a short action based arcade style game, with the single objective of getting the highest score
+  possible depending on how long the player manages to survive. As more enemies come from outer space, the task
+  of protecting the centre of the screen gets harder, forcing the player to manage the currency acquired
+  throughout play in order to progress through several powerup trees. Eventually the enemies become
+  unmanageable, leaving the player with only their highscore to contemplate.
+</p>
+
+<div class="d-flex justify-content-center proj-video">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/tfuKZj5X1DA" frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+<h6>Contribution</h6>
+<p>
+  Being developed for the 2023's edition of Global Game Jam, with the theme "Roots", the team spent quite a
+  while brainstorming an idea, after which tasks were delegated to different members. Taking into account the
+  theme and the concept of protecting a core from enemies burrowing underground, this idea of managing what has
+  already been burrowed vs what hasn't, had to be represented to the player in some way, which became my
+  responsibility throughout the jam, only managing to crack the approach well into the 48 hour time limit.
+</p>
+
+<div class="d-flex justify-content-center">
+  <div class="divider"></div>
+</div>
+
+<p>
+  Since Godot lacked any such feature out of the box, the R&D process consisted of checking what had been done
+  regarding such feature, and hacking way a solution that worked for us based on other people's efforts. This
+  resulted in a collider associated with a sprite, that on collision with the enemies, recalculates itself on
+  given time intervals, based on a boolean operation that takes into account the enemy's collider. Other than
+  that, general bug fixing is always on the menu in these types of projects, with the game coming together
+  pretty neatly in the last couple of hours.
+</p>

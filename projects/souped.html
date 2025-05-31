@@ -1,133 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>GetSouped</title>
-  <meta charset="UTF-8">
-
+ <head>
+  <title>
+   Get Souped!
+  </title>
+  <meta charset="utf-8"/>
   <!-- Google Fonts -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
   <!-- CSS Files -->
-  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-
-<body>
-
+  <link href="../assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
   <div class="lightbox-details container">
-
-    <div class="row lightbox-header">
-      <div class="col">
-        <h2>Get Souped!</h2>
-        <p><em>Game Jam</em></p>
-      </div>
-
-      <div class="col">
-        <div class="d-flex justify-content-end">
-          <a href="https://luischaves.itch.io/get-souped" target="_blank" class="check-proj-link">
-            Check it!
-          </a>
-        </div>
-      </div>
+   <div class="row lightbox-header">
+    <div class="col">
+     <h2>
+      Get Souped!
+     </h2>
+     <p>
+      <em>
+       Game Jam
+      </em>
+     </p>
     </div>
-
-    <div class="row lightbox-sub-header">
-      <div class="col">
-        <ul>
-          <li><b>Year:</b> 2024</li>
-          <li><b>Team Size:</b> 6</li>
-          <li><b>Time:</b> 3 days</li>
-          <li><b>Employment Type:</b> Fullest-time</li>
-        </ul>
-      </div>
-
-      <div class="col align-content-center">
-        <div class="d-flex justify-content-end">
-          <button class="tldr-button">
-            TLDR
-            <svg class="icon">
-              <use xlink:href="../assets/icons/icons.svg#icon-arrow-down"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
+    <div class="col">
+     <div class="d-flex justify-content-end">
+      <a class="check-proj-link" href="https://luischaves.itch.io/get-souped" target="_blank">
+       Check it!
+      </a>
+     </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <h6>Description</h6>
-        <p>
-          In Get Souped! you play as a "Godzilla-like" in a quest to make the best soup possible. Turns out though, that
-          the main ingredient is a type of tiny creature that lives in a crowded city being ravaged by a contagious
-          disease. Moving around the map, the player needs to guide creatures into the soup while avoiding the
-          contamination by the infected, while also using the ability to stomp buildings, not only to spawn more
-          creatures, but also kill any unneeded ones.
-        </p>
-
-        <div class="d-flex justify-content-center proj-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mVTk73hcaEY" frameborder="0"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <h6>Contribution</h6>
-        <p>
-          Developed around the theme "Tiny Creatures" associated with the 56th edition of Ludum Dare, the team started
-          by pitching around some ideas, and based on the chaotic nature of entity management that was achieved in <a
-            href="bonzios.html" target="_blank">Bonzios</a> we came up with the idea of turning those entities into tiny
-          creatures that have some autonomy and move around freely. The contextualization by using a Godzilla-like
-          figure then came naturally, and somehow the culinary theme also got thrown into the mix somehow. Regarding
-          actual development, the first task that was assigned to me was figuring out how we were going to mix
-          the 3D buildings while keeping the classic 2D Godot engine workflow intact.
-        </p>
-
-        <div class="d-flex justify-content-center">
-          <div class="divider"></div>
-        </div>
-
-        <p>
-          This mix ended up being accomplished by having a second camera rendering a 3D scene on the side - with all the
-          corresponding buildings - and then using a texture overlayed on top of the 2D camera working as a render
-          target for the 3D camera. Keeping both cameras in sync, as well as any other camera behaviour, like
-          camera-shake for example, was also handled by me. Other than that, I also ended up being responsible for level
-          design, putting the city together, but also behaviour related to the destruction of said city, from the
-          buildings to the actual stomp that the player can perform.
-        </p>
-
-        <h6 id="tldr">TLDR</h6>
-        <ul>
-          <li>Crowd management and damage control with Godzilla.</li>
-          <li>Developed in Godot.</li>
-          <li>Made for Ludum Dare 56, with "Tiny Creatures" as a theme.</li>
-          <li>Features a sketchy hand-drawn aesthetic.</li>
-          <li>Was responsible for the camera and destruction system.</li>
-        </ul>
-
-        <div class="row project-tags">
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Gameplay Programming</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Godot</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Level Design</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Git</p>
-          </div>
-        </div>
-
-      </div>
+   </div>
+   <div class="row lightbox-sub-header">
+    <div class="col">
+     <ul>
+      <li>
+       <b>
+        Year:
+       </b>
+       2024
+      </li>
+      <li>
+       <b>
+        Team Size:
+       </b>
+       6
+      </li>
+      <li>
+       <b>
+        Time:
+       </b>
+       3 days
+      </li>
+      <li>
+       <b>
+        Employment Type:
+       </b>
+       Fullest-time
+      </li>
+     </ul>
     </div>
+    <div class="col align-content-center">
+     <div class="d-flex justify-content-end">
+      <button class="tldr-button">
+       TLDR
+       <svg class="icon">
+        <use xlink:href="../assets/icons/icons.svg#icon-arrow-down">
+        </use>
+       </svg>
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col">
+     <div id="body-generation">
+      <h6>
+       Description
+      </h6>
+      <p>
+       In Get Souped! you play as a "Godzilla-like" in a quest to make the best soup possible. Turns out though, that
+  the main ingredient is a type of tiny creature that lives in a crowded city being ravaged by a contagious
+  disease. Moving around the map, the player needs to guide creatures into the soup while avoiding the
+  contamination by the infected, while also using the ability to stomp buildings, not only to spawn more
+  creatures, but also kill any unneeded ones.
+      </p>
+      <div class="d-flex justify-content-center proj-video">
+       <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/mVTk73hcaEY" width="560">
+       </iframe>
+      </div>
+      <h6>
+       Contribution
+      </h6>
+      <p>
+       Developed around the theme "Tiny Creatures" associated with the 56th edition of Ludum Dare, the team started
+  by pitching around some ideas, and based on the chaotic nature of entity management that was achieved in
+       <a href="bonzios.html" target="_blank">
+        Bonzios
+       </a>
+       we came up with the idea of turning those entities into tiny
+  creatures that have some autonomy and move around freely. The contextualization by using a Godzilla-like
+  figure then came naturally, and somehow the culinary theme also got thrown into the mix somehow. Regarding
+  actual development, the first task that was assigned to me was figuring out how we were going to mix
+  the 3D buildings while keeping the classic 2D Godot engine workflow intact.
+      </p>
+      <div class="d-flex justify-content-center">
+       <div class="divider">
+       </div>
+      </div>
+      <p>
+       This mix ended up being accomplished by having a second camera rendering a 3D scene on the side - with all the
+  corresponding buildings - and then using a texture overlayed on top of the 2D camera working as a render
+  target for the 3D camera. Keeping both cameras in sync, as well as any other camera behaviour, like
+  camera-shake for example, was also handled by me. Other than that, I also ended up being responsible for level
+  design, putting the city together, but also behaviour related to the destruction of said city, from the
+  buildings to the actual stomp that the player can perform.
+      </p>
+     </div>
+     <h6 id="tldr">
+      TLDR
+     </h6>
+     <ul>
+      <li>
+       Crowd management and damage control with Godzilla.
+      </li>
+      <li>
+       Developed in Godot.
+      </li>
+      <li>
+       Made for Ludum Dare 56, with "Tiny Creatures" as a theme.
+      </li>
+      <li>
+       Features a sketchy hand-drawn aesthetic.
+      </li>
+      <li>
+       Was responsible for the camera and destruction system.
+      </li>
+     </ul>
+     <div class="row project-tags">
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Gameplay Programming
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Godot
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Level Design
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Git
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
   </div>
-
   <!-- JS File -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/js/main.js"></script>
-
-</body>
-
+  <script src="../assets/vendor/jquery/jquery.min.js">
+  </script>
+  <script src="../assets/js/main.js">
+  </script>
+ </body>
 </html>

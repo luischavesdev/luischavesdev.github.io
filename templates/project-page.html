@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{data_0}</title>
+  <meta charset="UTF-8">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="lightbox-details container">
+
+    <div class="row lightbox-header">
+      <div class="col">
+        <h2>{data_1}</h2>
+        {data_2}
+      </div>
+
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          {data_3}
+        </div>
+      </div>
+    </div>
+
+    <div class="row lightbox-sub-header">
+      <div class="col">
+        <ul>
+          <li><b>Year:</b> {data_4}</li>
+          <li><b>Team Size:</b> {data_5}</li>
+          <li><b>Time:</b> {data_6}</li>
+          <li><b>Employment Type:</b> {data_7}</li>
+        </ul>
+      </div>
+
+      <div class="col align-content-center">
+        <div class="d-flex justify-content-end">
+          <button class="tldr-button">
+            TLDR
+            <svg class="icon">
+              <use xlink:href="../assets/icons/icons.svg#icon-arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        
+        <div id="body-generation"></div>
+
+        <h6 id="tldr">TLDR</h6>
+        <ul>
+          {data_8}
+        </ul>
+
+        <div class="row project-tags">
+          {data_9}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS File -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

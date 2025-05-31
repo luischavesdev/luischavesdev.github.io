@@ -1,0 +1,36 @@
+<h6>Description</h6>
+<p>
+  With Sound Particles having already work done on the binaural front, the next step was to expand the immersive
+  audio experience by having the ability to pan binaural audio based on the position of the listener's head. In
+  order to do this, integration of some kind of tracking had to be done, and in between several options, like
+  camera-based tracking, the chosen option ended up being an IMU based solution, either integrated into the
+  headphones, like in Apple's AirPods, or through an external Bluetooth device.
+</p>
+
+<div class="d-flex justify-content-center proj-video">
+  <img src="../assets/img/projects/sp-project.jpg" class="img-fluid" alt="Binaural plugin screenshot">
+</div>
+
+<h6>Contribution</h6>
+<p>
+  Being brought into the team with the task of R&D'ing possible solutions for the problem at hand, the first
+  approach consisted in trying to retrieve the IMU's information from the AirPods, since they were the first
+  thing at hand at the office. After a couple of days researching the topic, a Swift app was put together that
+  could receive the angles information, but this could be done only by using a proprietary API only available in
+  iOS, which kinda limited the reach of the final product. Shortly after, work started to be done on the Waves'
+  NX, which worked through Bluetooth.
+</p>
+
+<div class="d-flex justify-content-center">
+  <div class="divider"></div>
+</div>
+
+<p>
+  Regarding the NX, the communication protocol used to communicate with Waves' apps was figured out, allowing
+  the IMU's information to be accessed by a generic API created in C++ for better integration with Sound
+  Particles codebase. Work was also done with Supperware's tracker, which had open documentation, but
+  communicated through MIDI, forcing the C++ API to abstract the idiosyncrasies of each head-tracker. Finally,
+  the work done was integrated in a JUCE project, further developed so the angle information could be sent using
+  OSC, and just for good measure, Allan Deviation and other performance indicators were measured across the 3
+  solutions with the help of Max/MSP, and we concluded that Supperware's solution was the best fit overall.
+</p>

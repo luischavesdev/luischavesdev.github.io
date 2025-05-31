@@ -1,0 +1,37 @@
+<h6>Description</h6>
+<p>
+  In Get Souped! you play as a "Godzilla-like" in a quest to make the best soup possible. Turns out though, that
+  the main ingredient is a type of tiny creature that lives in a crowded city being ravaged by a contagious
+  disease. Moving around the map, the player needs to guide creatures into the soup while avoiding the
+  contamination by the infected, while also using the ability to stomp buildings, not only to spawn more
+  creatures, but also kill any unneeded ones.
+</p>
+
+<div class="d-flex justify-content-center proj-video">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/mVTk73hcaEY" frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+<h6>Contribution</h6>
+<p>
+  Developed around the theme "Tiny Creatures" associated with the 56th edition of Ludum Dare, the team started
+  by pitching around some ideas, and based on the chaotic nature of entity management that was achieved in <a
+    href="bonzios.html" target="_blank">Bonzios</a> we came up with the idea of turning those entities into tiny
+  creatures that have some autonomy and move around freely. The contextualization by using a Godzilla-like
+  figure then came naturally, and somehow the culinary theme also got thrown into the mix somehow. Regarding
+  actual development, the first task that was assigned to me was figuring out how we were going to mix
+  the 3D buildings while keeping the classic 2D Godot engine workflow intact.
+</p>
+
+<div class="d-flex justify-content-center">
+  <div class="divider"></div>
+</div>
+
+<p>
+  This mix ended up being accomplished by having a second camera rendering a 3D scene on the side - with all the
+  corresponding buildings - and then using a texture overlayed on top of the 2D camera working as a render
+  target for the 3D camera. Keeping both cameras in sync, as well as any other camera behaviour, like
+  camera-shake for example, was also handled by me. Other than that, I also ended up being responsible for level
+  design, putting the city together, but also behaviour related to the destruction of said city, from the
+  buildings to the actual stomp that the player can perform.
+</p>

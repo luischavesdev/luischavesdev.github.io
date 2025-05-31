@@ -3,6 +3,7 @@
 		{
 			"title": "Metallic Mayhem",
 			"link": "mm.html",
+			"projectURL": "https://arcade-alchemists.itch.io/metallicmayhem",
 			"bannerURL": "mm-banner.jpg",
 			"bannerAlt": "Metallic Mayhem banner",
 			"filters": [
@@ -10,6 +11,7 @@
 				"professional"
 			],
 			"context": "Mindera Gaming",
+			"contextURL": "https://mindera.com/",
 			"date": "2024",
 			"teamSize": "~10",
 			"duration": "6 months",
@@ -33,6 +35,7 @@
 		{
 			"title": "Yellow Sky",
 			"link": "yellowsky.html",
+			"projectURL": "https://luischaves.itch.io/yellow-sky",
 			"bannerURL": "yellowsky-banner.gif",
 			"bannerAlt": "Yellow Sky banner",
 			"filters": [
@@ -40,6 +43,7 @@
 				"student"
 			],
 			"context": "Student Game",
+			"contextURL": "",
 			"date": "2022",
 			"teamSize": "4",
 			"duration": "5 months",
@@ -63,6 +67,7 @@
 		{
 			"title": "Onis",
 			"link": "onis.html",
+			"projectURL": "https://tomaslongo.itch.io/onis",
 			"bannerURL": "onis-banner.jpg",
 			"bannerAlt": "Onis banner",
 			"filters": [
@@ -70,6 +75,7 @@
 				"student"
 			],
 			"context": "Student Game",
+			"contextURL": "",
 			"date": "2021",
 			"teamSize": "3",
 			"duration": "5 months",
@@ -93,6 +99,7 @@
 		{
 			"title": "Anemoia Damacy",
 			"link": "anemoia.html",
+			"projectURL": "https://luischaves.itch.io/anemoia-damacy",
 			"bannerURL": "anemoia-banner.jpg",
 			"bannerAlt": "Anemoya Damacy banner",
 			"filters": [
@@ -100,6 +107,7 @@
 				"student"
 			],
 			"context": "Student Game",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "4",
 			"duration": "5 months",
@@ -123,6 +131,7 @@
 		{
 			"title": "Bonzios SP 9.5",
 			"link": "bonzios.html",
+			"projectURL": "https://luischaves.itch.io/bonzios-sp-95",
 			"bannerURL": "bonzios-banner.gif",
 			"bannerAlt": "Bonzios banner",
 			"filters": [
@@ -130,6 +139,7 @@
 				"jam"
 			],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "4",
 			"duration": "3 days",
@@ -153,6 +163,7 @@
 		{
 			"title": "Point of View",
 			"link": "pov.html",
+			"projectURL": "https://jdm2ggj2021.itch.io/point-of-view",
 			"bannerURL": "pov-banner.jpg",
 			"bannerAlt": "Point of View banner",
 			"filters": [
@@ -160,6 +171,7 @@
 				"jam"
 			],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2021",
 			"teamSize": "9",
 			"duration": "2 days",
@@ -183,6 +195,7 @@
 		{
 			"title": "Beet Up: Raddish Edition",
 			"link": "beetup.html",
+			"projectURL": "https://tgnics.itch.io/beet-up-raddish-edition",
 			"bannerURL": "beetup-banner.jpg",
 			"bannerAlt": "Beet Up banner",
 			"filters": [
@@ -190,6 +203,7 @@
 				"jam"
 			],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "6",
 			"duration": "2 days",
@@ -211,6 +225,7 @@
 		{
 			"title": "Get Souped!",
 			"link": "souped.html",
+			"projectURL": "https://luischaves.itch.io/get-souped",
 			"bannerURL": "souped-banner.gif",
 			"bannerAlt": "Get Souped banner",
 			"filters": [
@@ -218,6 +233,7 @@
 				"jam"
 			],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2024",
 			"teamSize": "6",
 			"duration": "3 days",
@@ -239,6 +255,7 @@
 		{
 			"title": "Ballad for MIDI",
 			"link": "ballad.html",
+			"projectURL": "https://luischaves.itch.io/ballad-for-midi",
 			"bannerURL": "ballad-banner.jpg",
 			"bannerAlt": "Ballad for MIDI banner",
 			"filters": [
@@ -246,6 +263,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "3",
 			"duration": "2 months",
@@ -269,6 +287,7 @@
 		{
 			"title": "How to Summon a Cat (for dummies)",
 			"link": "summoncat.html",
+			"projectURL": "https://inesseni00.itch.io/how-to-summon-a-cat-for-dummies",
 			"bannerURL": "summoncat-banner.jpg",
 			"bannerAlt": "How to Summon a Cat banner",
 			"filters": [
@@ -276,6 +295,7 @@
 				"jam"
 			],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2024",
 			"teamSize": "5",
 			"duration": "3 days",
@@ -297,6 +317,7 @@
 		{
 			"title": "Binaural Plugin",
 			"link": "sp.html",
+			"projectURL": "",
 			"bannerURL": "sp-banner.jpg",
 			"bannerAlt": "Game engine banner",
 			"filters": [
@@ -304,6 +325,7 @@
 				"professional"
 			],
 			"context": "Sound Particles",
+			"contextURL": "https://soundparticles.com/",
 			"date": "2022",
 			"teamSize": "~20",
 			"duration": "4 months",
@@ -327,6 +349,7 @@
 		{
 			"title": "C++ Game Engine",
 			"link": "gameengine.html",
+			"projectURL": "https://github.com/luischavesdev/CppGameEngine",
 			"bannerURL": "gameengine-banner.jpg",
 			"bannerAlt": "Game engine banner",
 			"filters": [
@@ -334,6 +357,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2021",
 			"teamSize": "2",
 			"duration": "2 months",
@@ -356,6 +380,7 @@
 		{
 			"title": "Simulation Simulator",
 			"link": "simulation.html",
+			"projectURL": "https://github.com/carolinaaraujo00/simulation-simulator",
 			"bannerURL": "simulation-banner.jpg",
 			"bannerAlt": "Simulation Simulator banner",
 			"filters": [
@@ -363,6 +388,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "3",
 			"duration": "1 month",
@@ -386,6 +412,7 @@
 		{
 			"title": "Tetris Klone",
 			"link": "tetris.html",
+			"projectURL": "https://github.com/Decathlannix/android_project",
 			"bannerURL": "tetris-banner.jpg",
 			"bannerAlt": "Tetris Klone banner",
 			"filters": [
@@ -393,6 +420,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2023",
 			"teamSize": "3",
 			"duration": "1 month",
@@ -415,6 +443,7 @@
 		{
 			"title": "UE4 C++ Prototypes",
 			"link": "prototypes.html",
+			"projectURL": "mailto:luischaves.dev@gmail.com",
 			"bannerURL": "prototypes-banner.jpg",
 			"bannerAlt": "UE4 C++ Prototypes banner",
 			"filters": [
@@ -422,6 +451,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2021",
 			"teamSize": "1~2",
 			"duration": "2 months",
@@ -444,6 +474,7 @@
 		{
 			"title": "Socialmind",
 			"link": "socialmind.html",
+			"projectURL": "https://github.com/luischavesdev/Socialmind",
 			"bannerURL": "socialmind-banner.jpg",
 			"bannerAlt": "Socialmind banner",
 			"filters": [
@@ -451,6 +482,7 @@
 				"exercise"
 			],
 			"context": "Exercise Project",
+			"contextURL": "",
 			"date": "2022",
 			"teamSize": "3",
 			"duration": "1 month",
@@ -475,10 +507,12 @@
 		{
 			"title": "Steam Chain",
 			"link": "steamchain.html",
+			"projectURL": "https://luischaves.itch.io/steam-chain",
 			"bannerURL": "steamchain-banner.jpg",
 			"bannerAlt": "Steam Chain banner",
 			"filters": [],
 			"context": "Student Game",
+			"contextURL": "",
 			"date": "2020",
 			"teamSize": "3",
 			"duration": "5 months",
@@ -501,10 +535,12 @@
 		{
 			"title": "Null Gravity",
 			"link": "nullg.html",
+			"projectURL": "https://luischaves.itch.io/null-gravity",
 			"bannerURL": "nullg-banner.jpg",
 			"bannerAlt": "Null Gravity banner",
 			"filters": [],
 			"context": "Game Jam",
+			"contextURL": "",
 			"date": "2020",
 			"teamSize": "8",
 			"duration": "2 days",

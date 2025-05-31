@@ -2,10 +2,11 @@
 
 from bs4 import BeautifulSoup
 from pathlib import Path
-import re, os, sys, json, markdown, yaml, markdown_it
+import re, os, sys, json
 
 TEMPLATES_FOLDER = Path("templates/")
 DATA_FOLDER = Path("data/")
+PREPROJ_FOLDER = Path("pregen-projects/")
 PROJECTS_FOLDER = Path("projects/")
 BANNERS_FOLDER = Path("assets/img/projects/")
 
@@ -54,7 +55,7 @@ def inject_education_panels(source_html_file):
     inject_html_into_file_at_target(education_html, source_html_file, "index.html", "education-generation")
 
 
-# --- || Project Related Injection || ---
+# --- || Projects Related Injection || ---
 
 
 def inject_project_highlights(source_html_file):
@@ -174,7 +175,9 @@ def inject_project_cards(source_html_file):
 
             # Get project order from appropriate json to then store on the html element
             custom_order = order_json["custom"][category_idx].index(projects_json[category_idx][project_idx]["title"])
-            chronological_order = order_json["chronological"][category_idx].index(projects_json[category_idx][project_idx]["title"])
+            chronological_order = order_json["chronological"][category_idx].index(
+                projects_json[category_idx][project_idx]["title"]
+            )
 
             next_template = card_template_html.format(
                 data_0=clamped_title,
@@ -195,6 +198,82 @@ def inject_project_cards(source_html_file):
         )
 
 
+def generate_project_pages():
+    page_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-page.html")
+    tag_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "project-tag.html")
+    link_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "cta-link.html")
+    button_template_html = get_html_at_file_location(TEMPLATES_FOLDER / "cta-button.html")
+
+    with open(DATA_FOLDER / "projects.json", encoding="utf-8") as json_file:
+        projects_json = json.load(json_file)
+
+    for category_idx, category_entry in enumerate(projects_json):
+        for project_idx, project_entry in enumerate(projects_json[category_idx]):
+
+            # Check if context field needs to be a link
+            context_url = projects_json[category_idx][project_idx]["contextURL"]
+            context_html = ""
+            if context_url:
+                context_html = "<a href=\"" + context_url + "\"target=\"_blank\">" + "<em>Mindera Gaming</em></a>"
+            else:
+                context_html = "<p><em>" + projects_json[category_idx][project_idx]["context"] + "</em></p>"
+
+            # Create appropriate call to action button
+            project_url = projects_json[category_idx][project_idx]["projectURL"]
+            cta_html = ""
+
+            if project_url:
+                cta_text = "Ask for it!" if "@" in project_url else "Check it!"
+
+                cta_html = link_template_html.format(
+                    data_0=projects_json[category_idx][project_idx]["projectURL"],
+                    data_1=cta_text,
+                )
+            else:
+                cta_html = button_template_html
+
+            # Create a string with all the description list items
+            description_html = []
+            for description_idx, description_entry in enumerate(projects_json[category_idx][project_idx]["tldr"]):
+                description_html.append(
+                    "<li>" + projects_json[category_idx][project_idx]["tldr"][description_idx] + "</li>"
+                )
+            description_html = "".join(description_html)
+
+            # Create a string with all the tag elements
+            tags_html = []
+            for tag_idx, tag_entry in enumerate(projects_json[category_idx][project_idx]["tags"]):
+                next_tag_template = tag_template_html.format(
+                    data_0=projects_json[category_idx][project_idx]["tags"][tag_idx]
+                )
+                tags_html.append(next_tag_template)
+            tags_html = "".join(tags_html)
+
+            page_html = page_template_html.format(
+                data_0=projects_json[category_idx][project_idx]["title"],
+                data_1=projects_json[category_idx][project_idx]["title"],
+                data_2=context_html,
+                data_3=cta_html,
+                data_4=projects_json[category_idx][project_idx]["date"],
+                data_5=projects_json[category_idx][project_idx]["teamSize"],
+                data_6=projects_json[category_idx][project_idx]["duration"],
+                data_7=projects_json[category_idx][project_idx]["employment"],
+                data_8=description_html,
+                data_9=tags_html,
+            )
+
+            project_body_html = get_html_at_file_location(
+                PREPROJ_FOLDER / projects_json[category_idx][project_idx]["link"]
+            )
+            inject_html_into_file_at_target(
+                project_body_html,
+                page_html,
+                PROJECTS_FOLDER / projects_json[category_idx][project_idx]["link"],
+                "body-generation",
+                direct_source=True,
+            )
+
+
 # --- || Utilities || ---
 
 
@@ -205,9 +284,10 @@ def get_html_at_file_location(file_location):
 
 # Pass multiple true if we want to inject at multiple points on target file
 def inject_html_into_file_at_target(
-    inject_html, source_html, output_name, target_id, element_type="div", multiple=False
+    inject_html, source_html, output_name, target_id, element_type="div", multiple=False, direct_source=False
 ):
-    soup = BeautifulSoup(get_html_at_file_location(source_html), "html.parser")
+    html_to_use = source_html if direct_source else get_html_at_file_location(source_html)
+    soup = BeautifulSoup(html_to_use, "html.parser")
     found_divs = soup.find_all(element_type, id=target_id) if multiple else soup.find(element_type, id=target_id)
 
     if not found_divs:
@@ -230,7 +310,12 @@ def inject_html_into_file_at_target(
 
 
 def clean_generated_stuff():
-    os.remove("index.html")
+    if os.path.exists("index.html"):
+        os.remove("index.html")
+
+    os.chdir(PROJECTS_FOLDER)
+    for file in os.listdir():
+        os.remove(file)
 
 
 # --- || Main || ---
@@ -240,6 +325,9 @@ if __name__ == "__main__":
     if "--clean" in sys.argv:
         clean_generated_stuff()
     else:
+        if "--projgen" in sys.argv:
+            generate_project_pages()
+
         source_to_use = "pregen-index.html"
         inject_footers(source_to_use)
 

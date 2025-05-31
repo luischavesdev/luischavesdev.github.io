@@ -1,135 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>Tetris</title>
-  <meta charset="UTF-8">
-
+ <head>
+  <title>
+   Tetris Klone
+  </title>
+  <meta charset="utf-8"/>
   <!-- Google Fonts -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
   <!-- CSS Files -->
-  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-
-<body>
-
+  <link href="../assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
   <div class="lightbox-details container">
-
-    <div class="row lightbox-header">
-      <div class="col">
-        <h2>Tetris Klone</h2>
-        <p><em>Exercise Project</em></p>
-      </div>
-
-      <div class="col">
-        <div class="d-flex justify-content-end">
-          <a href="https://github.com/Decathlannix/android_project" target="_blank" class="check-proj-link">
-            Check it!
-          </a>
-        </div>
-      </div>
+   <div class="row lightbox-header">
+    <div class="col">
+     <h2>
+      Tetris Klone
+     </h2>
+     <p>
+      <em>
+       Exercise Project
+      </em>
+     </p>
     </div>
-
-    <div class="row lightbox-sub-header">
-      <div class="col">
-        <ul>
-          <li><b>Year:</b> 2023</li>
-          <li><b>Team Size:</b> 3</li>
-          <li><b>Time:</b> 1 month</li>
-          <li><b>Employment Type:</b> Part-time</li>
-        </ul>
-      </div>
-
-      <div class="col align-content-center">
-        <div class="d-flex justify-content-end">
-          <button class="tldr-button">
-            TLDR
-            <svg class="icon">
-              <use xlink:href="../assets/icons/icons.svg#icon-arrow-down"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
+    <div class="col">
+     <div class="d-flex justify-content-end">
+      <a class="check-proj-link" href="https://github.com/Decathlannix/android_project" target="_blank">
+       Check it!
+      </a>
+     </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <h6>Description</h6>
-        <p>
-          Tetris implementation built using Kotlin, with a couple of added features just for good measure. Besides the
-          standard Tetris gameplay, the project also has a customizable profile section, along with an online
-          leaderboard that keeps track of player's highest scores. Regarding the actual gameplay of Tetris, only the
-          most fundamental mechanics were implemented, so no T-Spins, no wall kicks, no hard drops, etc.
-        </p>
-
-        <div class="d-flex justify-content-center proj-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Un0bCrgZLqw" frameborder="0"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <h6>Contribution</h6>
-        <p>
-          Project developed for a mobile development class by three experienced developers. Tongue twisters apart
-          though, being a class project, some requirements had to be implemented, like the usual use of hardware
-          features, GPS location, database connection, and so forth. As to how to contextualize those features, the
-          team's go-to approach was always to wrap them in a game, so this time around we chose Tetris as a classic
-          baseline to follow, presenting a sweet middle ground when it comes to implementation difficulty. With the
-          workload being split between us three, I got the Tetris part, which mostly consisted in creating the different
-          tetrominoes data structures and rendering them to the screen.
-        </p>
-
-        <div class="d-flex justify-content-center">
-          <div class="divider"></div>
-        </div>
-
-        <p>
-          Other than that, several game logic considerations had to be made, like how to handle line clears, which
-          implied splitting the different pieces into individual blocks, that in turn were managed on a grid system. In
-          terms of communication with the rest of the app, the final score is stored at the end of each game, and gets
-          placed on the leaderboard using Firebase, in case the value consists of an highscore. On the leaderboard,
-          associated with each highscore is the player's profile pic as well as it's country, assuming the player
-          allowed the location settings to be turned on.
-        </p>
-
-        <h6 id="tldr">TLDR</h6>
-        <ul>
-          <li>Tetris clone done in Kotlin.</li>
-          <li>Developed for Android.</li>
-          <li>Built using pure Kotlin.</li>
-          <li>Online leaderboard done with Firebase.</li>
-          <li>Was responsible for the actual game side of things, i.e. building Tetris, the game&trade;.</li>
-        </ul>
-
-        <div class="row project-tags">
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Kotlin</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Mobile Development</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Gameplay Programming</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Firebase</p>
-          </div>
-          <div class="col-sm-auto icon-box project-tag">
-            <p>Android</p>
-          </div>
-        </div>
-
-      </div>
+   </div>
+   <div class="row lightbox-sub-header">
+    <div class="col">
+     <ul>
+      <li>
+       <b>
+        Year:
+       </b>
+       2023
+      </li>
+      <li>
+       <b>
+        Team Size:
+       </b>
+       3
+      </li>
+      <li>
+       <b>
+        Time:
+       </b>
+       1 month
+      </li>
+      <li>
+       <b>
+        Employment Type:
+       </b>
+       Part-time
+      </li>
+     </ul>
     </div>
+    <div class="col align-content-center">
+     <div class="d-flex justify-content-end">
+      <button class="tldr-button">
+       TLDR
+       <svg class="icon">
+        <use xlink:href="../assets/icons/icons.svg#icon-arrow-down">
+        </use>
+       </svg>
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col">
+     <div id="body-generation">
+      <h6>
+       Description
+      </h6>
+      <p>
+       Tetris implementation built using Kotlin, with a couple of added features just for good measure. Besides the
+  standard Tetris gameplay, the project also has a customizable profile section, along with an online
+  leaderboard that keeps track of player's highest scores. Regarding the actual gameplay of Tetris, only the
+  most fundamental mechanics were implemented, so no T-Spins, no wall kicks, no hard drops, etc.
+      </p>
+      <div class="d-flex justify-content-center proj-video">
+       <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Un0bCrgZLqw" width="560">
+       </iframe>
+      </div>
+      <h6>
+       Contribution
+      </h6>
+      <p>
+       Project developed for a mobile development class by three experienced developers. Tongue twisters apart
+  though, being a class project, some requirements had to be implemented, like the usual use of hardware
+  features, GPS location, database connection, and so forth. As to how to contextualize those features, the
+  team's go-to approach was always to wrap them in a game, so this time around we chose Tetris as a classic
+  baseline to follow, presenting a sweet middle ground when it comes to implementation difficulty. With the
+  workload being split between us three, I got the Tetris part, which mostly consisted in creating the different
+  tetrominoes data structures and rendering them to the screen.
+      </p>
+      <div class="d-flex justify-content-center">
+       <div class="divider">
+       </div>
+      </div>
+      <p>
+       Other than that, several game logic considerations had to be made, like how to handle line clears, which
+  implied splitting the different pieces into individual blocks, that in turn were managed on a grid system. In
+  terms of communication with the rest of the app, the final score is stored at the end of each game, and gets
+  placed on the leaderboard using Firebase, in case the value consists of an highscore. On the leaderboard,
+  associated with each highscore is the player's profile pic as well as it's country, assuming the player
+  allowed the location settings to be turned on.
+      </p>
+     </div>
+     <h6 id="tldr">
+      TLDR
+     </h6>
+     <ul>
+      <li>
+       Tetris clone done in Kotlin.
+      </li>
+      <li>
+       Developed for Android.
+      </li>
+      <li>
+       Built using pure Kotlin.
+      </li>
+      <li>
+       Online leaderboard done with Firebase.
+      </li>
+      <li>
+       Was responsible for the actual game side of things, i.e. building Tetris, the game™.
+      </li>
+     </ul>
+     <div class="row project-tags">
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Kotlin
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Mobile Development
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Gameplay Programming
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Firebase
+       </p>
+      </div>
+      <div class="col-sm-auto icon-box project-tag">
+       <p>
+        Android
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
   </div>
-
   <!-- JS File -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/js/main.js"></script>
-
-</body>
-
+  <script src="../assets/vendor/jquery/jquery.min.js">
+  </script>
+  <script src="../assets/js/main.js">
+  </script>
+ </body>
 </html>
