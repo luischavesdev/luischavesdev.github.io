@@ -360,12 +360,15 @@ footer p {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
-  position: absolute;
   width: 100%;
   top: 140px;
   bottom: 100%;
-  opacity: 0;
   z-index: 2;
+}
+
+section.section-java-hidden {
+  position: absolute;
+  opacity: 0;
 }
 
 section.section-show {
@@ -376,7 +379,6 @@ section.section-show {
 }
 
 section .container {
-  background: rgba(0, 0, 0, 0);
   padding: 30px;
 }
 

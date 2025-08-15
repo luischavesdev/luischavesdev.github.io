@@ -94,6 +94,12 @@ window.onload = (event) => {
   document.getElementsByClassName('about-link')[0].click();
   document.getElementsByClassName('about-link')[1].parentElement.classList.add("active");
 
+  //Hides sections by default
+  let sections = document.getElementsByTagName('section');
+  for (let i = 0; i < sections.length; ++i) {
+    sections[i].classList.add('section-java-hidden');
+  }
+
   //Handles logic regarding the two profile-pics.
   switchToggleBehaviour();
 
