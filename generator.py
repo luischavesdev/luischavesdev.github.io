@@ -212,9 +212,10 @@ def generate_project_pages():
 
             # Check if context field needs to be a link
             context_url = projects_json[category_idx][project_idx]["contextURL"]
+            context_text = projects_json[category_idx][project_idx]["context"]
             context_html = ""
             if context_url:
-                context_html = "<a href=\"" + context_url + "\"target=\"_blank\">" + "<em>Mindera Gaming</em></a>"
+                context_html = "<a href=\"" + context_url + "\"target=\"_blank\">" + "<em>" + context_text + "</em></a>"
             else:
                 context_html = "<p><em>" + projects_json[category_idx][project_idx]["context"] + "</em></p>"
 
